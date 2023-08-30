@@ -1,4 +1,18 @@
+:root {
+    --brand-color: #4F2EE8;
+    --accent-color: #EAC645;
+    --text-color: color: #111;
+    --main-background: #F3F3F3;
+    --category: color: rgba(17, 17, 17, 0.60);
+    --fund-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
+}
 
+.dark {
+    --text-color: color: #fff;
+    --main-background: #202024;
+    --category: color: rgba(255, 255, 255, 0.60);
+    ;
+}
 
 .scroll-lock {
     overflow: hidden;
