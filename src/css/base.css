@@ -27,6 +27,31 @@ body {
     background-color: var(--main-background);
 }
 
+header {
+    height: 64px;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+      height: 72px;
+  }
+}
+
 .scroll-lock {
     overflow: hidden;
+}
+
+.container {
+    padding-inline: 20px;
+}
+@media only screen and (min-width: 768px) {
+    .container {
+            padding-inline: 32px;
+        }
+}
+
+@media only screen and (min-width: 1440px) {
+    .container {
+            padding-inline: 24px;
+        }
 }
