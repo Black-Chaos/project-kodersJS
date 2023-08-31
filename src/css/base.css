@@ -1,17 +1,28 @@
 :root {
     --brand-color: #4F2EE8;
     --accent-color: #EAC645;
-    --text-color: color: #111;
+    --text-color: #111;
+    --border: #111;
     --main-background: #F3F3F3;
-    --category: color: rgba(17, 17, 17, 0.60);
+    --category: rgba(17, 17, 17, 0.60);
+    --second-text-card: #B4AFAF;
     --fund-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
+    --popup-message: rgba(17, 17, 17, 0.50);
+    --default-text-shop-list: rgba(0, 0, 0, 0.60);
 }
 
 .dark {
-    --text-color: color: #fff;
+    --text-color:  #fff;
+    --border:  #fff;
     --main-background: #202024;
-    --category: color: rgba(255, 255, 255, 0.60);
-    ;
+    --category: rgba(255, 255, 255, 0.60);
+    --popup-message: rgba(255, 255, 255, 0.50);
+    --default-text-shop-list: rgba(255, 255, 255, 0.60);
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--main-background);
 }
 
 .scroll-lock {
