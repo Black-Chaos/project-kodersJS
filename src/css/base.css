@@ -21,6 +21,8 @@
 }
 
 body {
+    font: 400 14px/1.29 'DM Sans', sans-serif;
+    letter-spacing: -0.56px;
     color: var(--text-color);
     background-color: var(--main-background);
 }
