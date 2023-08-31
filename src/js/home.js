@@ -2,8 +2,6 @@ import Book_api from './APIs/book-api';
 
 let categoryDivWraper = '';
 
-// book.getBookByCategory('Picture Books').then(console.log);
-
 // book.getBookById('643282b1e85766588626a0dc').then(console.log);
 getAllCategoriesBookTopList();
 
@@ -42,6 +40,13 @@ function renderCategoriesBookTopList(list_name, books) {
   });
 
   const categoryDiv = `<div class = ""><h2 class = "">${list_name}</h2>
-          <ul class="category-list">${listLi}</ul></div>`;
+          <ul class="category-list">${listLi}</ul>
+          <button class="" type="button"></button></div>`;
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
+}
+
+getBooks();
+export function getBooks() {
+  const book = new Book_api();
+  book.getBookByCategory('Advice How-To and Miscellaneous').then(console.log);
 }
