@@ -7,26 +7,19 @@ export default class Book_api {
   TOP_BOOKS = `${this.RESOURCE}/top-books`;
   CATEGORY_LIST = `${this.RESOURCE}/category-list`;
   CATEGORY = `${this.RESOURCE}/category`;
-    constructor() {
-      this.selectedCategory = ''
+  constructor() {}
+  async getCategoryList() {
+    return await axios(this.CATEGORY_LIST).then(({ data }) => data);
   }
-    setCategory(category) {
-      this.selectedCategory = category
-    }
-    async getCategoryList() {
-        return await axios(this.CATEGORY_LIST).then(({data}) => data)
-    }
-    async getTopBooks() {
-        return await axios(this.TOP_BOOKS).then(({data}) => data)
-    }
-    async getBookByCategory() {
-        return await axios(
-          `${this.CATEGORY}?category=${this.selectedCategory}`
-        ).then(({ data }) => data);
-    }
-    async getBookById(bookId) {
-        return await axios(`${this.RESOURCE}/${bookId}`).then(
-          ({ data }) => data
-        );
-    }
+  async getTopBooks() {
+    return await axios(this.TOP_BOOKS).then(({ data }) => data);
+  }
+  async getBookByCategory(category) {
+    return await axios(
+      `${this.CATEGORY}?category=${category}`
+    ).then(({ data }) => data);
+  }
+  async getBookById(bookId) {
+    return await axios(`${this.RESOURCE}/${bookId}`).then(({ data }) => data);
+  }
 }
