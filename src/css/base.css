@@ -1,5 +1,57 @@
+:root {
+    --brand-color: #4F2EE8;
+    --accent-color: #EAC645;
+    --text-color: #111;
+    --border: #111;
+    --main-background: #F3F3F3;
+    --category: rgba(17, 17, 17, 0.60);
+    --second-text-card: #B4AFAF;
+    --fund-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
+    --popup-message: rgba(17, 17, 17, 0.50);
+    --default-text-shop-list: rgba(0, 0, 0, 0.60);
+}
 
+.dark {
+    --text-color:  #fff;
+    --border:  #fff;
+    --main-background: #202024;
+    --category: rgba(255, 255, 255, 0.60);
+    --popup-message: rgba(255, 255, 255, 0.50);
+    --default-text-shop-list: rgba(255, 255, 255, 0.60);
+}
+
+body {
+    font: 400 14px/1.29 'DM Sans', sans-serif;
+    letter-spacing: -0.56px;
+    color: var(--text-color);
+    background-color: var(--main-background);
+}
+
+header {
+    height: 64px;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+      height: 72px;
+  }
+}
 
 .scroll-lock {
     overflow: hidden;
+}
+
+.container {
+    padding-inline: 20px;
+}
+@media only screen and (min-width: 768px) {
+    .container {
+            padding-inline: 32px;
+        }
+}
+
+@media only screen and (min-width: 1440px) {
+    .container {
+            padding-inline: 24px;
+        }
 }

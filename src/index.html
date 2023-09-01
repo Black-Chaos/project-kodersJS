@@ -4,18 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Books</title>
+    <title>Bookshelf</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="partials/header.html" />
+    <header class="home">
+      <load src="partials/header.html" />
+      <a href="./shop-list.html">shop-list</a>
+    </header>
 
     <main>
-      <div class="list">
-        <load src="partials/categories.html" />
-        <load src="partials/funds.html" />
-      </div>
-      <load src="partials/home.html" />
+      <section>
+        <div class="container">
+          <div class="list">
+            <load src="partials/categorses.html" />
+            <load src="partials/funds.html" />
+          </div>
+          <load src="partials/home.html" />
+        </div>
+      </section>
     </main>
 
     <div class="start-backdrop">
