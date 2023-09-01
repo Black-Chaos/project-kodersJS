@@ -1,8 +1,8 @@
-import './js/header';
-import './js/home';
-import './js/popup';
-import './js/sidebar';
-import './js/start';
+import './js/header'
+import './js/home'
+import './js/popup'
+import './js/categories'
+import './js/start'
 
 // import Book_api from './js/APIs/book-api';
 
