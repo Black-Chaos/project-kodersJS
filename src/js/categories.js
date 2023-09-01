@@ -1,6 +1,6 @@
 // import { getCategoryList } from './APIs/book-api';
 import Book_api from './APIs/book-api';
-import { getAllCategoriesBookTopList } from '.js/home';
+// import { getAllCategoriesBookTopList } from '.js/home';
 
 const categoryColumn = document.querySelector('.categories-elements');
 const list = document.querySelector('.categories-elements');
