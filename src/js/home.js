@@ -30,7 +30,7 @@ function renderListOfTopCategories(books) {
   return books
     .map(({ book_image, title, author }) => {
       return `<li class = "">
-              <a href="#" class="link" id=""><img class="img" src="${book_image}>
+              <a href="#" class="link" id=""><img class="img" src="${book_image}">
               <h3 class = "">${title}</h3>
               <p class = "">${author}</p>
               </a></li>`;
@@ -39,13 +39,24 @@ function renderListOfTopCategories(books) {
 }
 
 function renderBlockForTopCategories(list_name, book) {
-  const categoryDiv = `<div class = ""><h2 class = "">${list_name}</h2>
-          <ul class="category-list">${book}</ul>
-          <button class="" type="button">see more</button></div>`;
+  const categoryDiv = `<div class = "wraper-div">
+                          <h2 class = "category-title">${list_name}</h2>
+                          <ul class="category-list">${book}</ul>
+                          <button class="" type="button">see more</button>
+                       </div>`;
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
 }
 
-// getBooksOfCategory('Picture Books');
+categoryDivWraper.addEventListener('click', onLoadMore);
+
+function onLoadMore(e) {
+  if (e.target.nodeName === 'BUTTON') {
+    const title = e.target.parentNode.firstElementChild.textContent;
+    categoryDivWraper.innerHTML = '';
+    console.dir(e.target.previousElementSibling);
+    getBooksOfCategory(title);
+  }
+}
 // getBooksOfCategory('Advice How-To and Miscellaneous');
 
 export function getBooksOfCategory(nameOfCategory) {
@@ -101,7 +112,7 @@ function renderBlockForCategories(book) {
 
 /* <div class="category-wraper">
   <h1 class="">Best Sellers <span class="">Books</span></h1>
-  <div class="">
+  <div class="wraper-div">
     <h2 class="">${list_name}</h2>
     <ul class="category-list">
       <li class = "">
