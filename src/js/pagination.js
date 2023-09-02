@@ -1,12 +1,6 @@
 import Pagination from 'tui-pagination';
 import { createShoplistCard } from '../shop-list'
 
-// import Book_api from "./js/APIs/book-api";
-// const book = new Book_api();
-// book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
-// const booksJson = JSON.stringify(books);
-// localStorage.setItem("LOCAL_KEY", booksJson)
-// })
 
 const galleryItems = JSON.parse(localStorage.getItem('shoppingList'));
 const container = document.getElementById('pagination');
