@@ -1,3 +1,11 @@
+/* категорії */
+
+/* both categories & support funds container  */
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 /* mobile */
 .categories-container {
   width: 335px;
@@ -51,10 +59,13 @@
 
 /* mobile */
 .categories-list {
-  height: 24px;
+  height: 18px;
+
   font-size: 16px;
-  line-height: 1.33;
-  letter-spacing: -0.36px;
+  color: var(--category);
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -0.32px;
 
   padding-bottom: 24px;
 }
@@ -62,6 +73,11 @@
 /* tablet & desktop */
 @media only screen and (min-width: 768px) {
   .categories-list {
+    height: 24px;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.36px;
+
     padding-bottom: 32px;
   }
 }
@@ -72,9 +88,8 @@
 
 .categories-list:hover,
 .categories-list:focus {
-  height: 24px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   color: var(--brand-color);
 
@@ -84,15 +99,8 @@
 .active {
   height: 24px;
   font-weight: 700;
+  font-size: 18px;
 
   text-transform: uppercase;
-  color: var(--brand-color);
-}
-
-/* tablet & desktop */
-@media only screen and (min-width: 768px) {
-  .categories-list {
-    font-size: 17px;
-    line-height: 24px;
-  }
+  color: var(--active-category);
 }
