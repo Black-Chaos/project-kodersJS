@@ -58,6 +58,7 @@ function onLoadMore(e) {
   }
 }
 // getBooksOfCategory('Advice How-To and Miscellaneous');
+// getBooksOfCategory('Hardcover Fiction');
 
 export function getBooksOfCategory(nameOfCategory) {
   book.getBookByCategory(nameOfCategory).then(resp => {
@@ -66,9 +67,14 @@ export function getBooksOfCategory(nameOfCategory) {
 }
 
 function renderMarkupForCategory(resp, nameOfCategory) {
+  const firstWords = nameOfCategory.split(' ');
+  const lastWord = firstWords.splice(length - 1);
+
   categoryDivWraper.insertAdjacentHTML(
     'beforeend',
-    `<h1 class="">${nameOfCategory}</h1><div class="wraper"></div>`
+    `<h1 class="title">${firstWords.join(
+      ' '
+    )} <span class = "accent">${lastWord}</span></h1><div class="wraper"></div>`
   );
 
   resp
@@ -96,7 +102,7 @@ function renderBlockForCategories(book) {
 }
 
 /* <div class="category-wraper">
-    <h1 class="">${nameOfCategory}</h1>
+    <h1 class="">${firstWords.join(' ')} <span class = "">${lastWord}</span></h1>
     <div class="wraper">
       <ul class="category-list">
         <li class = "">
