@@ -88,3 +88,9 @@ function createShoplistCard(data) {
 }
 
 const deleteBtn = document.querySelector('.delete-icon');
+
+
+
+
+
+export {createShoplistCard};
