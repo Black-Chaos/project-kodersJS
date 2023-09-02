@@ -74,7 +74,6 @@ function onLoadMore(e) {
 
 function getBooksbyBtnLess(nameOfCategory, categoryList, e) {
   book.getTopBooks(nameOfCategory).then(resp => {
-    renderTitleForTopCategories();
     renderMarkupForBtnLess(resp, nameOfCategory, categoryList);
     e.target.textContent = 'see more';
   });
