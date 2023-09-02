@@ -95,3 +95,11 @@
     gap: 24px;
     flex-wrap: wrap;
 }
+
+.wraper-div {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.btn-less {}
