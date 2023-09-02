@@ -5,6 +5,7 @@
     --border: #111;
     --main-background: #F3F3F3;
     --category: rgba(17, 17, 17, 0.60);
+    --active-category: #4F2EE8;
     --second-text-card: #B4AFAF;
     --fund-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
     --menu-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
@@ -23,6 +24,7 @@
     --border: #fff;
     --main-background: #202024;
     --category: rgba(255, 255, 255, 0.60);
+    --active-category: #EAC645;
     --popup-message: rgba(255, 255, 255, 0.50);
     --default-text-shop-list: rgba(255, 255, 255, 0.60);
     --start-modal-bg: #202024;
