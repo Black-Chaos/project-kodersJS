@@ -6,10 +6,14 @@ const categoryDivWraper = document.querySelector('.category-wraper');
 getAllCategoriesBookTopList();
 
 export function getAllCategoriesBookTopList() {
-  book.getTopBooks().then(resp => {
-    renderTitleForTopCategories();
-    renderMarkupForTopCategories(resp);
-  });
+  try {
+    book.getTopBooks().then(resp => {
+      renderTitleForTopCategories();
+      renderMarkupForTopCategories(resp);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function renderTitleForTopCategories() {
@@ -32,10 +36,12 @@ function renderListOfTopCategories(books) {
   return books
     .map(({ book_image, title, author }) => {
       return `<li class = "">
-              <a href="#" class="link" id=""><img class="img" src="${book_image}">
-              <h3 class = "">${title}</h3>
-              <p class = "">${author}</p>
-              </a></li>`;
+                <a href="#" class="link" id="">
+                  <img class="img" src="${book_image}">
+                  <h3 class = "">${title}</h3>
+                  <p class = "">${author}</p>
+                </a>
+              </li>`;
     })
     .join('');
 }
@@ -73,34 +79,44 @@ function onLoadMore(e) {
 }
 
 function getBooksbyBtnLess(nameOfCategory, categoryList, e) {
-  book.getTopBooks(nameOfCategory).then(resp => {
-    renderMarkupForBtnLess(resp, nameOfCategory, categoryList);
-    e.target.textContent = 'see more';
-  });
+  try {
+    book.getTopBooks(nameOfCategory).then(resp => {
+      renderMarkupForBtnLess(resp, nameOfCategory, categoryList);
+      e.target.textContent = 'see more';
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function renderMarkupForBtnLess(resp, nameOfCategory, categoryList) {
   resp
     .map(({ books, list_name }) => {
       if (nameOfCategory === list_name) {
-        const book = renderListForBtnLess(books);
+        const book = renderListOfTopCategories(books);
 
         categoryList.innerHTML = '';
-
         categoryList.insertAdjacentHTML('beforeend', book);
       }
     })
     .join('');
 }
 
-function renderListForBtnLess(books) {
-  return books
+function getBooksbyBtnMore(nameOfCategory, categoryList) {
+  try {
+    book.getBookByCategory(nameOfCategory).then(resp => {
+      renderMarkupByBtnMore(resp, categoryList);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function renderMarkupByBtnMore(resp, categoryList) {
+  resp
     .map(({ book_image, title, author }) => {
-      return `<li class = "">
-              <a href="#" class="link" id=""><img class="img" src="${book_image}">
-              <h3 class = "">${title}</h3>
-              <p class = "">${author}</p>
-              </a></li>`;
+      const book = renderListOfCategories(book_image, title, author);
+      categoryList.insertAdjacentHTML('beforeend', book);
     })
     .join('');
 }
@@ -108,36 +124,15 @@ function renderListForBtnLess(books) {
 // getBooksOfCategory('Advice How-To and Miscellaneous');
 // getBooksOfCategory('Hardcover Fiction');
 
-function getBooksbyBtnMore(nameOfCategory, categoryList) {
-  book.getBookByCategory(nameOfCategory).then(resp => {
-    renderMarkupByBtnMore(resp, categoryList);
-  });
-}
-
-function renderMarkupByBtnMore(resp, categoryList) {
-  resp
-    .map(({ book_image, title, author }) => {
-      const book = renderList(book_image, title, author);
-      console.log('book10 ', book);
-      categoryList.insertAdjacentHTML('beforeend', book);
-      console.log('categoryList10 ', categoryList);
-    })
-    .join('');
-}
-
-function renderList(book_image, title, author) {
-  return `<li class = "">
-              <a href="#" class="link" id=""><img class="img" src="${book_image}">
-              <h3 class = "">${title}</h3>
-              <p class = "">${author}</p>
-              </a></li>`;
-}
-
 export function getBooksOfCategory(nameOfCategory) {
-  book.getBookByCategory(nameOfCategory).then(resp => {
-    renderMarkupTitle(nameOfCategory);
-    renderMarkupForCategory(resp);
-  });
+  try {
+    book.getBookByCategory(nameOfCategory).then(resp => {
+      renderMarkupTitle(nameOfCategory);
+      renderMarkupForCategory(resp);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function renderMarkupTitle(nameOfCategory) {
