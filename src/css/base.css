@@ -55,6 +55,8 @@ header {
 }
 
 .container {
+    margin-inline: auto;
+    display: flex;
     padding-inline: 15px;
     max-width: 375px;
 }
@@ -77,4 +79,10 @@ header {
         max-width: 1440px;
         padding-inline: 24px;
     }
+}
+
+@media only screen and (max-width: 1440px) {
+  .library .container {
+    flex-direction: column;
+  }
 }
