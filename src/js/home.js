@@ -8,6 +8,7 @@ getAllCategoriesBookTopList();
 export function getAllCategoriesBookTopList() {
   try {
     book.getTopBooks().then(resp => {
+      // console.log(resp);
       renderTitleForTopCategories();
       renderMarkupForTopCategories(resp);
     });
@@ -34,9 +35,9 @@ function renderMarkupForTopCategories(resp) {
 
 function renderListOfTopCategories(books) {
   return books
-    .map(({ book_image, title, author }) => {
+    .map(({ book_image, title, author, _id }) => {
       return `<li class = "">
-                <a href="#" class="link" id="">
+                <a href="#" class="link" id="${_id}">
                   <img class="img" src="${book_image}">
                   <h3 class = "">${title}</h3>
                   <p class = "">${author}</p>
@@ -59,47 +60,23 @@ categoryDivWraper.addEventListener('click', onLoadMore);
 
 function onLoadMore(e) {
   if (e.target.nodeName === 'BUTTON') {
+    const title = e.target.parentNode.firstElementChild.textContent;
+    const categoryList = e.target.previousElementSibling;
+    const categoryItems = categoryList.children;
     if (e.target.textContent === 'see more') {
-      const title = e.target.parentNode.firstElementChild.textContent;
-
-      const categoryList = e.target.previousElementSibling;
-
       categoryList.innerHTML = '';
 
       getBooksbyBtnMore(title, categoryList);
       e.target.textContent = 'see less';
     } else {
-      const title = e.target.parentNode.firstElementChild.textContent;
-
-      const categoryList = e.target.previousElementSibling;
-
-      getBooksbyBtnLess(title, categoryList, e);
+      for (let i = 0; i < categoryItems.length; i++) {
+        if (i > 4) {
+          categoryItems[i].classList = 'items-unvisible';
+          e.target.textContent = 'see more';
+        }
+      }
     }
   }
-}
-
-function getBooksbyBtnLess(nameOfCategory, categoryList, e) {
-  try {
-    book.getTopBooks(nameOfCategory).then(resp => {
-      renderMarkupForBtnLess(resp, nameOfCategory, categoryList);
-      e.target.textContent = 'see more';
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-function renderMarkupForBtnLess(resp, nameOfCategory, categoryList) {
-  resp
-    .map(({ books, list_name }) => {
-      if (nameOfCategory === list_name) {
-        const book = renderListOfTopCategories(books);
-
-        categoryList.innerHTML = '';
-        categoryList.insertAdjacentHTML('beforeend', book);
-      }
-    })
-    .join('');
 }
 
 function getBooksbyBtnMore(nameOfCategory, categoryList) {
@@ -114,8 +91,8 @@ function getBooksbyBtnMore(nameOfCategory, categoryList) {
 
 function renderMarkupByBtnMore(resp, categoryList) {
   resp
-    .map(({ book_image, title, author }) => {
-      const book = renderListOfCategories(book_image, title, author);
+    .map(({ book_image, title, author, _id }) => {
+      const book = renderListOfCategories(book_image, title, author, _id);
       categoryList.insertAdjacentHTML('beforeend', book);
     })
     .join('');
@@ -149,16 +126,16 @@ function renderMarkupTitle(nameOfCategory) {
 
 function renderMarkupForCategory(resp) {
   resp
-    .map(({ book_image, title, author }) => {
-      const book = renderListOfCategories(book_image, title, author);
+    .map(({ book_image, title, author, _id }) => {
+      const book = renderListOfCategories(book_image, title, author, _id);
       renderBlockForCategories(book);
     })
     .join('');
 }
 
-function renderListOfCategories(book_image, title, author) {
+function renderListOfCategories(book_image, title, author, _id) {
   return `<li class = "">
-              <a href="#" class="link" id="">
+              <a href="#" class="link" id="${_id}">
                 <img class="img" src="${book_image}">
                 <h3 class = "">${title}</h3>
                 <p class = "">${author}</p>
