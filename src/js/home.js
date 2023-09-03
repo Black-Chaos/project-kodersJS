@@ -1,4 +1,5 @@
 import Book_api from './APIs/book-api';
+import throttle from 'lodash.throttle';
 
 const book = new Book_api();
 const categoryDivWraper = document.querySelector('.category-wraper');
@@ -76,7 +77,7 @@ function renderBlockForTopCategories(list_name, bookList) {
   }
 }
 
-categoryDivWraper.addEventListener('click', onLoadMore);
+categoryDivWraper.addEventListener('click', throttle(onLoadMore, 1000));
 
 function onLoadMore(e) {
   if (e.target.nodeName === 'BUTTON') {
