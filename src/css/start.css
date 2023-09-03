@@ -60,7 +60,6 @@
     }
 }
 
-
 .start-close-icon {
     stroke: var(--start-modal-btn-bg);
     width: 20px;
@@ -130,6 +129,15 @@
     }
 }
 
+.start-input:focus {
+    outline-color: var(--brand-color);
+}
+
+.start-input:focus+.input-icon {
+    stroke: var(--brand-color);
+}
+
+
 .start-modal-intup-el {
     position: relative;
 }
@@ -177,6 +185,13 @@
         letter-spacing: -0.18px;
     }
 }
+
+.start-form-btn:focus,
+.start-form-btn:hover {
+    color: var(--brand-color);
+    border: 2px solid var(--brand-color);
+}
+
 
 .start-up-in {
     display: flex;
