@@ -1,7 +1,10 @@
 const refs = {
+  body: document.body,
   startBackdrop: document.querySelector('.start-backdrop'),
   startCloseBtn: document.querySelector('.start-close-btn'),
   form: document.querySelector('.start-form'),
+  input: document.querySelectorAll('.start-input'),
+  inputIcon: document.querySelectorAll('.input-icon'),
 };
 
 const LOCAL_KEY = 'form-data';
@@ -35,4 +38,11 @@ function onEscClose(e) {
     refs.startBackdrop.classList.add('is-hidden');
     window.removeEventListener();
   }
+}
+
+if (body.classList.contains('dark')) {
+  refs.startCloseBtn.classList.add('dark');
+  refs.form.classList.add('dark');
+  refs.input.classList.add('dark');
+  refs.inputIcon.classList.add('dark');
 }
