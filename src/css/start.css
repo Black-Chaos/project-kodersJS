@@ -60,7 +60,6 @@
     }
 }
 
-
 .start-close-icon {
     stroke: var(--start-modal-btn-bg);
     width: 20px;
@@ -94,6 +93,8 @@
     width: 244px;
     padding: 16px 24px;
     border: 2px solid var(--border);
+    background-color: transparent;
+    color: var(--text-color);
     border-radius: 40px;
     font-size: 16px;
     font-weight: 700;
@@ -129,6 +130,15 @@
         letter-spacing: -0.18px;
     }
 }
+
+.start-input:focus {
+    outline-color: var(--brand-color);
+}
+
+.start-input:focus+.input-icon {
+    stroke: var(--brand-color);
+}
+
 
 .start-modal-intup-el {
     position: relative;
@@ -178,6 +188,13 @@
     }
 }
 
+.start-form-btn:focus,
+.start-form-btn:hover {
+    color: var(--brand-color);
+    border: 2px solid var(--brand-color);
+}
+
+
 .start-up-in {
     display: flex;
     justify-content: center;
@@ -201,5 +218,5 @@
 }
 
 .start-in-text {
-    color: rgba(11, 11, 11, 0.5);
+    color: var(--popup-message);
 }
