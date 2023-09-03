@@ -1,0 +1,205 @@
+.start-backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition-delay: 333ms;
+}
+
+.start-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: initial;
+    background-color: var(--brand-color);
+}
+
+.start-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform cubic-bezier(.17, .67, 1, .32);
+    width: 307px;
+    padding: 14px;
+    border: 2px solid var(--start-modal-text-border);
+    background-color: var(--start-modal-bg);
+    border-radius: 18px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-modal {
+        width: 531px;
+        padding: 24px;
+    }
+}
+
+.start-close-btn {
+    display: block;
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    border: transparent;
+    background-color: transparent;
+    margin-bottom: 14px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-close-btn {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media only screen and (max-width: 1439px) {
+    .start-close-btn-svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+.start-close-icon {
+    stroke: var(--start-modal-btn-bg);
+    width: 20px;
+    height: 20px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-close-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.start-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-form {
+        gap: 28px;
+        margin-bottom: 20px;
+    }
+}
+
+.start-input {
+    width: 244px;
+    padding: 16px 24px;
+    border: 2px solid var(--border);
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.125;
+    letter-spacing: -0.16px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-input {
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: -0.18px;
+        width: 456px;
+        height: 61px;
+        padding: 0;
+        padding-left: 40px;
+    }
+}
+
+
+.start-input::placeholder {
+    color: var(--start-modal-btn-bg);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.125;
+    letter-spacing: -0.16px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-input::placeholder {
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: -0.18px;
+    }
+}
+
+.start-modal-intup-el {
+    position: relative;
+}
+
+
+.input-icon {
+    position: absolute;
+    top: 33%;
+    right: 24px;
+    width: 18px;
+    height: 18px;
+    stroke: var(--start-modal-btn-bg);
+    fill: transparent;
+}
+
+@media only screen and (min-width: 1440px) {
+    .input-icon {
+        top: 25%;
+        right: 32px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.start-form-btn {
+    width: 295px;
+    height: 50px;
+    border-radius: 40px;
+    background-color: var(--start-modal-text-border);
+    color: var(--start-modal-btn-text);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.125;
+    letter-spacing: -0.16px;
+
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-form-btn {
+        margin-top: 16px;
+        width: 499px;
+        height: 64px;
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: -0.18px;
+    }
+}
+
+.start-up-in {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 700;
+    line-height: 1.285;
+    letter-spacing: -0.14px;
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-up-in {
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: -0.18px;
+    }
+}
+
+.start-up-text {
+    color: var(--brand-color);
+    text-decoration: underline;
+}
+
+.start-in-text {
+    color: rgba(11, 11, 11, 0.5);
+}
