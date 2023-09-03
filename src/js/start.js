@@ -10,6 +10,7 @@ let inputData = {};
 refs.startCloseBtn.addEventListener('click', onCloseBtn);
 refs.form.addEventListener('input', onFormInput);
 refs.form.addEventListener('submit', onFormSub);
+window.addEventListener(`keydown`, onEscClose);
 
 function onCloseBtn() {
   refs.startBackdrop.classList.add('is-hidden');
@@ -25,4 +26,13 @@ function onFormInput(eve) {
   inputData[name] = value.trim();
   localStorage.setItem(LOCAL_KEY, JSON.stringify(inputData));
   console.log(inputData);
+}
+
+function onEscClose(e) {
+  if (e.code !== 'Escape') {
+    return;
+  } else {
+    refs.startBackdrop.classList.add('is-hidden');
+    window.removeEventListener();
+  }
 }
