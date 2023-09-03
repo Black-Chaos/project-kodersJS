@@ -1,11 +1,11 @@
 import './js/header';
 
-// import Book_api from "./js/APIs/book-api";
-// const book = new Book_api();
-// book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
-// const booksJson = JSON.stringify(books);
-// localStorage.setItem("LOCAL_KEY", booksJson)
-// })
+import Book_api from "./js/APIs/book-api";
+const book = new Book_api();
+book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
+const booksJson = JSON.stringify(books);
+localStorage.setItem("LOCAL_KEY", booksJson)
+})
 
 
 const cardList = document.querySelector('.shop-list-js');
@@ -23,19 +23,9 @@ function createShoppingList() {
   }
 }
 function createShoplistCard(data) {
-  return data
-    .map(
-      ({
-        id,
-        author,
-        book_image,
-        description,
-        list_name,
-        title,
-        buy_links,
-      }) => `
-  <li class="card-item js-card" data-id="${id}">
-      <img class="card-img" src="${book_image}" alt="Book's image" width="100"  height="142"/>
+  return data.map(({ _id, author, book_image, description, list_name, title, buy_links }) => `
+  <li class="card-item js-card" data-id="${_id}">
+      <img class="card-img" src="${book_image ? book_image : "./img/icons.svg#icon-cork-book"}" alt="Book's image" width="100"  height="142"/>
       <div class="card-top">
         <h2 class="card-title">${title}</h2>
         <p class="card-genre">${list_name}</p>
@@ -83,13 +73,34 @@ function createShoplistCard(data) {
       </button>
     </li>
     `
-    )
-    .join('');
+  ).join('');
+
+};
+
+const deleteBtn = document.querySelectorAll('.card-delete-btn');
+
+
+deleteBtn.forEach((button) => {
+  button.addEventListener('click', onDeleteCard);
+});
+
+
+function onDeleteCard(event) {
+  const cardItem = event.target.closest('.js-card');
+  if(cardItem) {
+    const cardId = cardItem.getAttribute('data-id');
+    cardItem.remove();
+    const booksData = JSON.parse(localStorage.getItem("LOCAL_KEY"));
+    if(booksData) {
+      const newBooksData = booksData.filter(book => book._id !== cardId);
+      localStorage.setItem("LOCAL_KEY", JSON.stringify(newBooksData));
+      if (!newBooksData.length) {
+        const isHidden = document.querySelector('.is-hidden');
+        isHidden.classList.remove('is-hidden');
+      }
+    } 
+  }
 }
-
-const deleteBtn = document.querySelector('.delete-icon');
-
-
 
 
 
