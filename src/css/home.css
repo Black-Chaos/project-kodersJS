@@ -7,10 +7,10 @@
     list-style: none;
     display: flex;
 
-justify-content: space-between;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
 
 }
@@ -89,3 +89,17 @@ justify-content: center;
     float: right;
 
 }
+
+.wraper {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.wraper-div {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.btn-less {}
