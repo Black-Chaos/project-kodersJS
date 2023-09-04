@@ -2,7 +2,7 @@ import Book_api from './APIs/book-api';
 import throttle from 'lodash.throttle';
 
 const book = new Book_api();
-const categoryDivWraper = document.querySelector('.category-wraper');
+const categoryDivWraper = document.querySelector('.category-wrapper');
 
 getAllCategoriesBookTopList();
 
