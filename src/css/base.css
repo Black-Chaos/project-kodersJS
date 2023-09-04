@@ -20,6 +20,7 @@
     --popup-filter-shop: grayscale(100%);
     --popup-filter-shop-amazon: grayscale(100%);
     --popup-filter-shop-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, .35));
+    --popup-backdrop: rgba(17, 17, 17, 0.40);
 }
 
 .dark {
@@ -90,4 +91,8 @@ header {
   .library .container {
     flex-direction: column;
   }
+}
+
+.popup-backdrop {
+    background-color: var(--popup-backdrop);
 }

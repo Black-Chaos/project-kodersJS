@@ -39,10 +39,3 @@ function onEscClose(e) {
     window.removeEventListener();
   }
 }
-
-if (body.classList.contains('dark')) {
-  refs.startCloseBtn.classList.add('dark');
-  refs.form.classList.add('dark');
-  refs.input.classList.add('dark');
-  refs.inputIcon.classList.add('dark');
-}
