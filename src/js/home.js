@@ -185,7 +185,6 @@ function renderBlockForCategories(bookList) {
 }
 
 const btn = document.getElementById('btn-to-top');
-console.log(btn);
 
 btn.addEventListener('click', topFunction);
 
