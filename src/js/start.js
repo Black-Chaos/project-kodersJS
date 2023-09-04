@@ -21,11 +21,13 @@ function onCloseBtn() {
 
 function onFormSub(event) {
   event.preventDefault();
+  const formDiv = event.target.children;
+  console.dir(formDiv.input);
   event.currentTarget.reset();
 }
 
-function onFormInput(eve) {
-  const { name, value } = eve.target;
+function onFormInput(event) {
+  const { name, value } = event.target;
   inputData[name] = value.trim();
   localStorage.setItem(LOCAL_KEY, JSON.stringify(inputData));
   console.log(inputData);
