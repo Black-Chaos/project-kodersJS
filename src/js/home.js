@@ -1,5 +1,4 @@
 import Book_api from './APIs/book-api';
-import throttle from 'lodash.throttle';
 
 const book = new Book_api();
 const categoryDivWraper = document.querySelector('.category-wraper');
@@ -27,77 +26,80 @@ function renderTitleForTopCategories() {
 function renderMarkupForTopCategories(resp) {
   resp
     .map(({ list_name, books }) => {
-      // Для імітації порожного вмісту категорії
-      // if (list_name === 'Advice How-To and Miscellaneous') {
-      //   books = [];
-      // }
-      const bookList = renderListOfTopCategories(books);
-
-      renderBlockForTopCategories(list_name, bookList);
+      const book = renderListOfTopCategories(books);
+      renderBlockForTopCategories(list_name, book);
     })
     .join('');
 }
 
 function renderListOfTopCategories(books) {
-  if (books.length > 0) {
-    return books
-      .map(({ book_image, title, author, _id }) => {
-        return renderListOfCategories(book_image, title, author, _id);
-      })
-      .join('');
-  }
-
-  return renderCorkItem();
+  return books
+    .map(({ book_image, title, author }) => {
+      return `<li class = "">
+                <a href="#" class="link" id="">
+                  <img class="img" src="${book_image}">
+                  <h3 class = "">${title}</h3>
+                  <p class = "">${author}</p>
+                </a>
+              </li>`;
+    })
+    .join('');
 }
 
-function renderCorkItem() {
-  return `<li class = "cork">
-            <div class="cork-wraper-svg">
-            <svg width="88" height="80">
-              <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
-            </svg>
-            <p class = "cork-text">Sorry, the book will be added later...</p>
-            </div>
-        </li>`;
-}
-
-function renderBlockForTopCategories(list_name, bookList) {
+function renderBlockForTopCategories(list_name, book) {
   const categoryDiv = `<div class = "wraper-div">
-                          <h2 class = "category-title">${list_name}</h2>
-                          <ul class="category-list">${bookList}</ul>
-                          <button class="btn-see-more" type="button">see more</button>
-                        </div>`;
-
+                         <h2 class = "category-title">${list_name}</h2>
+                         <ul class="category-list">${book}</ul>
+                         <button class="" type="button">see more</button>
+                       </div>`;
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
-
-  const btnSeeMore = document.querySelector('.btn-see-more');
-
-  if (bookList.includes('<li class = "cork">')) {
-    btnSeeMore.classList.add('is-hidden');
-  }
 }
 
-categoryDivWraper.addEventListener('click', throttle(onLoadMore, 1000));
+categoryDivWraper.addEventListener('click', onLoadMore);
 
 function onLoadMore(e) {
   if (e.target.nodeName === 'BUTTON') {
-    const title = e.target.parentNode.firstElementChild.textContent;
-    const categoryList = e.target.previousElementSibling;
-    const categoryItems = categoryList.children;
     if (e.target.textContent === 'see more') {
+      const title = e.target.parentNode.firstElementChild.textContent;
+
+      const categoryList = e.target.previousElementSibling;
+
       categoryList.innerHTML = '';
 
       getBooksbyBtnMore(title, categoryList);
       e.target.textContent = 'see less';
     } else {
-      for (let i = 0; i < categoryItems.length; i++) {
-        if (i > 4) {
-          categoryItems[i].classList = 'items-is-hidden';
-          e.target.textContent = 'see more';
-        }
-      }
+      const title = e.target.parentNode.firstElementChild.textContent;
+
+      const categoryList = e.target.previousElementSibling;
+
+      getBooksbyBtnLess(title, categoryList, e);
     }
   }
+}
+
+function getBooksbyBtnLess(nameOfCategory, categoryList, e) {
+  try {
+    book.getTopBooks(nameOfCategory).then(resp => {
+      renderMarkupForBtnLess(resp, nameOfCategory, categoryList);
+      e.target.textContent = 'see more';
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function renderMarkupForBtnLess(resp, nameOfCategory, categoryList) {
+  resp
+    .map(({ books, list_name }) => {
+      if (nameOfCategory === list_name) {
+        const book = renderListOfTopCategories(books);
+
+        categoryList.innerHTML = '';
+        categoryList.insertAdjacentHTML('beforeend', book);
+      }
+    })
+    .join('');
 }
 
 function getBooksbyBtnMore(nameOfCategory, categoryList) {
@@ -112,9 +114,9 @@ function getBooksbyBtnMore(nameOfCategory, categoryList) {
 
 function renderMarkupByBtnMore(resp, categoryList) {
   resp
-    .map(({ book_image, title, author, _id }) => {
-      const bookList = renderListOfCategories(book_image, title, author, _id);
-      categoryList.insertAdjacentHTML('beforeend', bookList);
+    .map(({ book_image, title, author }) => {
+      const book = renderListOfCategories(book_image, title, author);
+      categoryList.insertAdjacentHTML('beforeend', book);
     })
     .join('');
 }
@@ -125,11 +127,6 @@ function renderMarkupByBtnMore(resp, categoryList) {
 export function getBooksOfCategory(nameOfCategory) {
   try {
     book.getBookByCategory(nameOfCategory).then(resp => {
-      // Для імітації порожного вмісту категорії
-      // if (nameOfCategory === 'Advice How-To and Miscellaneous') {
-      //   resp = [];
-      // }
-
       renderMarkupTitle(nameOfCategory);
       renderMarkupForCategory(resp);
     });
@@ -151,22 +148,17 @@ function renderMarkupTitle(nameOfCategory) {
 }
 
 function renderMarkupForCategory(resp) {
-  if (resp.length > 0) {
-    resp
-      .map(({ book_image, title, author, _id }) => {
-        const bookList = renderListOfCategories(book_image, title, author, _id);
-        renderBlockForCategories(bookList);
-      })
-      .join('');
-  } else {
-    const bookList = renderCorkItem();
-    renderBlockForCategories(bookList);
-  }
+  resp
+    .map(({ book_image, title, author }) => {
+      const book = renderListOfCategories(book_image, title, author);
+      renderBlockForCategories(book);
+    })
+    .join('');
 }
 
-function renderListOfCategories(book_image, title, author, _id) {
+function renderListOfCategories(book_image, title, author) {
   return `<li class = "">
-              <a href="#" class="link" id="${_id}">
+              <a href="#" class="link" id="">
                 <img class="img" src="${book_image}">
                 <h3 class = "">${title}</h3>
                 <p class = "">${author}</p>
@@ -174,8 +166,8 @@ function renderListOfCategories(book_image, title, author, _id) {
           </li>`;
 }
 
-function renderBlockForCategories(bookList) {
-  const categoryUl = `<ul class="category-list">${bookList}</ul>`;
+function renderBlockForCategories(book) {
+  const categoryUl = `<ul class="category-list">${book}</ul>`;
 
   const wraper = document.querySelector('.wraper');
   wraper.insertAdjacentHTML('beforeend', categoryUl);
@@ -209,6 +201,6 @@ function renderBlockForCategories(bookList) {
         </a>
       </li>
     </ul>
-    <button class="btn-see-more" type="button">see more</button>
+    <button class="" type="button">see more</button>
   </div>
 </div> */
