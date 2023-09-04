@@ -12,7 +12,16 @@
     right: 0;
     bottom: 0;
     pointer-events: initial;
-    background-color: var(--brand-color);
+    /* background-color: var(--brand-color); */
+    background-image: radial-gradient(circle at top left, #644FE8 0%,
+            var(--brand-color) 30%);
+}
+
+@media only screen and (min-width: 1440px) {
+    .start-backdrop {
+        background-image: radial-gradient(circle at top left, #776BE7 0%,
+                var(--brand-color) 33%);
+    }
 }
 
 .start-modal {
@@ -92,9 +101,9 @@
 .start-input {
     width: 244px;
     padding: 16px 24px;
-    border: 2px solid var(--border);
+    border: 2px solid var(--start-modal-text-border);
     background-color: transparent;
-    color: var(--text-color);
+    color: var(--start-modal-text-border);
     border-radius: 40px;
     font-size: 16px;
     font-weight: 700;
