@@ -1,17 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-}
 
 .category-list {
     list-style: none;
-    display: flex;
-
-    justify-content: space-between;
+    
+}
+.category-wrapper {
+    display: flex;    
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+}
 
+.wrapper-for-genre{
+    display:inline-block;
+margin-bottom: 40px;
 
 }
 
@@ -25,8 +24,6 @@
 
 .main-title {
     color: --text-color;
-
-    margin: 0;
     margin-bottom: 40px;
 }
 
@@ -66,7 +63,6 @@
     font-style: italic;
     line-height: 1.16;
     letter-spacing: -0.48px;
-    margin-bottom: 8px;
 }
 
 
@@ -75,31 +71,66 @@
     text-decoration: none;
 }
 
-.button {
+.btn-see-more {
     color: --text-color;
     font-weight: 700;
     letter-spacing: -0.14px;
     text-transform: uppercase;
     border-radius: 40px;
     border: 2px solid --brand-color;
-    display: flex;
     padding: 14px 28px;
-    align-items: flex-start;
-    gap: 10px;
     float: right;
+    margin-top: 8px;
 
 }
 
-.wraper {
+.wrapper:not(:first-child) {
+        display: none;
+    }
+
+
+@media screen and (min-width: 428px) {
+
+ .category-wrapper{max-width: 428px;
+margin: 0 auto;}
+
+
+}
+
+@media screen and (min-width: 768px){
+.img{width: 218px;
+height: 316px;}  
+
+.wrapper:not(:first-child) {
+display:flex;
+flex-wrap: wrap;
+justify-content: center;
+        
+    }
+.category-list {
     display: flex;
-    gap: 24px;
     flex-wrap: wrap;
+    gap: 25px;
+}
+.category-wrapper{
+    max-width: 704px;
 }
 
-.wraper-div {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
+
+.main-title,
+.main-title-span {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
 }
 
-.btn-less {}
+.button{
+    margin-top: 20px;
+}
+}
+
+
+@media screen and (min-width: 1280px) {
+
+}
