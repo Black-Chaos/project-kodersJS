@@ -8,7 +8,7 @@ import hunger from '../../img/funds/action-against-hunger@1x.png';
 import worldVision from '../../img/funds/world-vision@1x.png';
 import prytula from '../../img/funds/sergiy-prytula@1x.png';
 
-export default [
+const supportFunds = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
@@ -55,3 +55,24 @@ export default [
     img: `${prytula}`,
   },
 ];
+
+function supportFundsMarkup(supportFunds) {
+  // const isHighResolutionScreen = window.devicePixelRatio > 1;
+
+  const markup = supportFunds
+    .map((fund, index) => {
+      const listIndex = String(index + 1).padStart(2, '0');
+      return `<li class="support-column">
+  <span class="support-index">${listIndex}</span><a class="fund-link" href="${fund.url}" rel="noopener noreferrer nofollow">
+  <img class="fund-img-link" src="${fund.img}" alt="${fund.title}"></a>
+</li>
+`;
+    })
+    .join('');
+  return markup;
+}
+
+const fundsColumn = document.querySelector('.support-funds-list');
+fundsColumn.insertAdjacentHTML('beforeend', supportFundsMarkup(supportFunds));
+
+export { supportFundsMarkup };
