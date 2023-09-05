@@ -2,6 +2,7 @@
 @import url('./base.css');
 @import url('./header.css');
 
+
 /**
     |============================
     | SHOPPING-LIST EMPTY
@@ -64,7 +65,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .shop-list-empty-img img {
+  .shop-list-empty-img {
     /* margin: 0 auto; */
     width: 322px;
     height: 241px;
@@ -82,7 +83,6 @@
 }
 
 .shop-list-container {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
@@ -114,20 +114,18 @@
 
   /* height: 142px; */
 
-  padding: 12px;
+  padding: 14px;
   display: flex;
   gap: 14px;
 
   border-radius: 16px;
-  /* border: 2px solid var(--shop-list-card-border); */
-  border: 2px solid rgba(79, 46, 232, 0.4);
-  
+  border: 2px solid var(--shop-list-card-border);
 }
 
 @media screen and (min-width: 768px) {
   .card-item {
     /* height: 165px; */
-    padding: 22px;
+    padding: 24px;
     gap: 24px;
   }
 }
@@ -136,7 +134,8 @@
   width: 100px;
   height: 142px;
   border-radius: 8px;
-  /* object-fit: cover; */
+  object-fit: cover;
+  background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 768px) {
@@ -241,9 +240,23 @@
 }
 
 @media screen and (min-width: 768px) {
-  .shop-item-amazon img {
+  .card-shops {
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .amazon-img {
     width: 48px;
     height: 15px;
+  }
+  .apple-img {
+    width: 28px;
+    height: 27px;
+  }
+  .bookshop-img {
+    width: 28px;
+    height: 27px;
   }
 }
 
@@ -262,20 +275,14 @@
   background-color: var(--brand-color);
   border: transparent;
   border-radius: 50%;
-
-  /* z-index: 10; */
-
-  /* fill: #fff;
-    cursor: pointer;
-    
-    padding: 6px;
-    transition: background-color .5s cubic-bezier(.4,0,.2,1);
-    */
 }
 
 @media screen and (min-width: 768px) {
   .card-delete-btn {
     right: 24px;
     top: 24px;
+
+    width: 34px;
+    height: 34px;
   }
 }
