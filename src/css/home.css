@@ -1,16 +1,16 @@
-
 .category-list {
     list-style: none;
-    
+
 }
+
 .category-wrapper {
-    display: flex;    
+    display: flex;
     flex-wrap: wrap;
 }
 
-.wrapper-for-genre{
-    display:inline-block;
-margin-bottom: 40px;
+.wrapper-for-genre {
+    display: inline-block;
+    margin-bottom: 40px;
 
 }
 
@@ -85,53 +85,59 @@ margin-bottom: 40px;
 }
 
 .wrapper:not(:first-child) {
-        display: none;
-    }
+    display: none;
+}
 
 
 @media screen and (min-width: 428px) {
 
- .category-wrapper{max-width: 428px;
-margin: 0 auto;}
-
-
-}
-
-@media screen and (min-width: 768px){
-.img{width: 218px;
-height: 316px;}  
-
-.wrapper:not(:first-child) {
-display:flex;
-flex-wrap: wrap;
-justify-content: center;
-        
+    .category-wrapper {
+        max-width: 428px;
+        margin: 0 auto;
     }
-.category-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
+
+
 }
-.category-wrapper{
-    max-width: 704px;
+
+@media screen and (min-width: 768px) {
+    .img {
+        width: 218px;
+        height: 316px;
+    }
+
+    .wrapper:not(:first-child) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+    .category-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .category-wrapper {
+        max-width: 704px;
+    }
+
+
+    .main-title,
+    .main-title-span {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -1.92px;
+    }
+
+    .button {
+        margin-top: 20px;
+    }
 }
 
 
-.main-title,
-.main-title-span {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -1.92px;
-}
-
-.button{
-    margin-top: 20px;
-}
-}
-
-
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {}
 
 /*------------ Катя - добавила ---------------*/
 .items-is-hidden {

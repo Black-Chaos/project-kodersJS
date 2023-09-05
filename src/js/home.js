@@ -65,7 +65,7 @@ function renderBlockForTopCategories(list_name, bookList) {
   const categoryDiv = `<div class = "wrapper-for-genre">
                           <h2 class = "list-name">${list_name}</h2>
                           <ul class="category-list">${bookList}</ul>
-                          <button class="button" type="button">see more</button>
+                          <button class="button" type="button">See More</button>
                         </div>`;
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
@@ -85,17 +85,17 @@ function onLoadMore(e) {
     const title = e.target.parentNode.firstElementChild.textContent;
     const categoryList = e.target.previousElementSibling;
     const categoryItems = categoryList.children;
-    if (e.target.textContent === 'see more') {
+    if (e.target.textContent === 'See More') {
       categoryList.innerHTML = '';
 
       getBooksbyBtnMore(title, categoryList);
-      e.target.textContent = 'see less';
+      e.target.textContent = 'See Less';
     } else {
       for (let i = 0; i < categoryItems.length; i++) {
         // Ще тут було б добре скролити до початку списку, зараз до верху
         if (i > 4) {
           categoryItems[i].classList = 'items-is-hidden';
-          e.target.textContent = 'see more';
+          e.target.textContent = 'See More';
           topFunctionToDiv();
         }
       }
