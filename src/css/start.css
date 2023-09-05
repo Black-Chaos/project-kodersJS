@@ -12,7 +12,6 @@
     right: 0;
     bottom: 0;
     pointer-events: initial;
-    /* background-color: var(--brand-color); */
     background-image: radial-gradient(circle at top left, #644FE8 0%,
             var(--brand-color) 30%);
 }
