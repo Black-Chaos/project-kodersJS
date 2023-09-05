@@ -11,6 +11,7 @@
     --menu-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
     --popup-message: rgba(17, 17, 17, 0.50);
     --default-text-shop-list: rgba(0, 0, 0, 0.60);
+    --shop-list-card-border: rgba(79, 46, 232, 0.4);
     --start-backdrop-gradient-bg: rgba(204, 236, 231, 0.50);
     --start-backdrop-gradient-filter: blur(539.7910766601562px);
     --start-modal-bg: #F6F6F6;
@@ -65,11 +66,12 @@ header {
     display: flex;
     padding-inline: 15px;
     max-width: 375px;
+    gap: 40px;
 }
 
 @media only screen and (min-width: 375px) {
     .container {
-        padding: 20px;
+        padding-inline: 20px;
     }
 }
 
@@ -90,6 +92,11 @@ header {
 @media only screen and (max-width: 1440px) {
   .library .container {
     flex-direction: column;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .container {
+    gap: 100px;
   }
 }
 
