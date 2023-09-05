@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/shop-list.css" />
   </head>
   <body>
-    <header class="shop-list">
+    <header class="header-shop-list">
       <load src="partials/header.html" />
     </header>
     <main>
@@ -16,41 +16,59 @@
         <div class="list">
           <load src="partials/funds.html" />
         </div>
-        <div class="shop-list">
-          <h1 class="shop-list-title">
-            Shopping <span class="shop-list-span">List</span>
-          </h1>
-          <div class="shop-list-empty is-hidden">
-            <p class="shop-list-empty-message">
-              This page is empty, add some books and proceed to order.
-            </p>
-            <picture class="shop-list-empty-img">
-              <source
-                media="(min-width: 768px)"
-                srcset="
-                  ./img/shopping-list/empty-basket_desktop_tab@1x.png 1x,
-                  ./img/shopping-list/empty-basket_desktop_tab@2x.png 2x
-                "
-                type="image/png"
-              />
-              <source
-                media="(max-width: 767px)"
-                srcset="
-                  ./img/shopping-list/empty-basket_mob@1x.png 1x,
-                  ./img/shopping-list/empty-basket_mob@2x.png 2x
-                "
-                type="image/png"
-              />
-              <img
-                src="./img/shopping-list/empty-basket_mob@1x.png"
-                alt="Books image"
-                width="265"
-                height="198"
-              />
-            </picture>
+        <div class=" shop-list-container container">
+          <div class="shopping-list">
+            <h1 class="shop-list-title">
+              Shopping <span class="shop-list-span">List</span>
+            </h1>
+            <div class="shop-list-empty is-hidden">
+              <p class="shop-list-empty-message">
+                This page is empty, add some books and proceed to order.
+              </p>
+              <picture class="shop-list-empty-img">
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_desktop_tab@1x.avif 1x,
+                    ./img/shopping-list/empty-basket_desktop_tab@2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_desktop_tab@1x.png 1x,
+                    ./img/shopping-list/empty-basket_desktop_tab@2x.png 2x
+                  "
+                  type="image/png"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_mob@1x.avif 1x,
+                    ./img/shopping-list/empty-basket_mob@2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_mob@1x.png 1x,
+                    ./img/shopping-list/empty-basket_mob@2x.png 2x
+                  "
+                  type="image/png"
+                />
+                <img
+                  src="./img/shopping-list/empty-basket_mob@1x.png"
+                  alt="Books image"
+                  width="265"
+                  height="198"
+                />
+              </picture>
+            </div>
+            <ul class="shop-list shop-list-js"></ul>
+            <div id="pagination" class="tui-pagination"></div>
           </div>
-          <ul class="shop-list-js"></ul>
-          <div id="pagination" class="tui-pagination"></div>
         </div>
       </section>
     </main>
