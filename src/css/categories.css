@@ -80,7 +80,7 @@
     /* gap: 32px; */
 
     height: 24px;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.33;
     letter-spacing: -0.36px;
   }
@@ -89,7 +89,7 @@
 .categories-list:hover,
 .categories-list:focus {
   font-weight: 700;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 24px;
   color: var(--brand-color);
 
@@ -98,7 +98,7 @@
 
 .active {
   height: 24px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
 
   text-transform: uppercase;
