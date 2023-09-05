@@ -1,21 +1,18 @@
 // import { getCategoryList } from './APIs/book-api';
 import Book_api from './APIs/book-api';
 import { getAllCategoriesBookTopList } from './home';
-// import { renderCategoriesBookTopList } from './home';
+import { getBooksOfCategory } from './home';
 
 const categoryColumn = document.querySelector('.categories-elements');
-const list = document.querySelector('.categories-elements');
+// const list = document.querySelector('.categories-elements');
+
 // this is for the active class
-let categoryLinks = document.getElementsByClassName('categories-list');
+let links = document.querySelectorAll('.category-link');
+const categoryDivWraper = document.querySelector('.category-wrapper');
 
 const book = new Book_api();
-// book.setCategory('Picture Books');
 
-function clearLinks(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    arr[i].classList.remove('active');
-  }
-}
+markupColumn();
 
 function markupColumn() {
   book
@@ -23,53 +20,72 @@ function markupColumn() {
     .then(data => {
       const markupCategoriesColumn = data
         .map(({ list_name }) => {
-          return `<li class="categories-list" id=${list_name}><a class="category-link" href="#">${list_name}</a></li>`;
+          return `<li class="categories-list"><a class="category-link" href="#">${list_name}</a></li>`;
         })
         .sort()
         .join('');
+
       console.log(data);
       categoryColumn.insertAdjacentHTML('beforeend', markupCategoriesColumn);
-
-      for (let i = 0; i < categoryLinks.length; i++) {
-        categoryLinks[i].addEventListener('click', e => {
-          console.log(categoryLinks[i]);
-          clearLinks(categoryLinks);
-          categoryLinks[i].classList.add('active');
-        });
-      }
+      links = document.querySelectorAll('.category-link');
+      console.log(links);
+      clearAll(links);
+      showLink(links);
     })
     .catch(error => console.log(error));
 }
-markupColumn();
+console.log(links);
 
-list.addEventListener('click', onCategoriesHandle);
+// Active class
+function clearAll(array) {
+  array.forEach(item => {
+    item.classList.remove('active');
+  });
+}
+function showLink(array, i = 0) {
+  array[i].classList.add('active');
+}
 
+categoryColumn.addEventListener('click', onCategoriesHandle);
 async function onCategoriesHandle(event) {
+  event.preventDefault();
+  // const target = event.target;
+
+  if (event.target && event.target.classList.contains('category-link')) {
+    links.forEach((item, i) => {
+      if (event.target == item) {
+        clearAll(links);
+        showLink(links, i);
+      }
+    });
+  }
   console.log(event.target.textContent);
-  if (
-    event.target.nodeName !== 'LI' &&
-    event.target.textContent === 'All categories'
-  )
+
+  if (event.target.nodeName !== 'A') {
     return;
+  }
 
   try {
-    const data = await book.getBookByCategory(event.target.textContent);
-    // const markup = getAllCategoriesBookTopList(data);
+    // const data = await book.getBookByCategory(event.target.textContent);
+    // console.log(data);
+    const markup = getBooksOfCategory(event.target.textContent);
+
+    clearMarkup();
+    categoryDivWraper.insertAdjacentHTML('beforeend', markup);
   } catch (error) {
     console.log(error);
   }
-}
 
-list.addEventListener('click', onTopBooksHandle);
-
-async function onTopBooksHandle(event) {
   if (event.target.textContent === 'All categories') {
     try {
-      const data = await book.getTopBooks();
-      console.log(data);
-      const markup = getAllCategoriesBookTopList(data);
+      const markup = getAllCategoriesBookTopList(event.target.textContent);
+
+      clearMarkup();
+      categoryDivWraper.insertAdjacentHTML('beforeend', markup);
     } catch (error) {
       console.log(error);
     }
   }
 }
+
+const clearMarkup = () => (categoryDivWraper.innerHTML = '');
