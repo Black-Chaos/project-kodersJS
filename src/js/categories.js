@@ -31,7 +31,7 @@ function onCategoriesHandle(event) {
   if (event.target.nodeName !== 'A') {
     return;
   }
-  if (event.target.parentNode.classList.contains('active')) return;
+  if (event.target.classList.contains('active')) return;
 
   categoryColumn.querySelector('.active').classList.remove('active');
   event.target.classList.add('active');
