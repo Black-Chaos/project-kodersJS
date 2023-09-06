@@ -1,4 +1,6 @@
 import Book_api from './APIs/book-api';
+import iconCorkBook from '../img/icons.svg';
+// import { openModalPopUp } from './popup';
 
 const book = new Book_api();
 const categoryDivWraper = document.querySelector('.category-wrapper');
@@ -86,9 +88,6 @@ function onLoadMore(e) {
     const categoryList = e.target.previousElementSibling;
     const categoryItems = categoryList.children;
 
-    // const wrapperForGenge = e.target.parentNode; -----на тайтл
-    // console.log(wrapperForGenge);
-
     if (e.target.textContent === 'See More') {
       categoryList.innerHTML = '';
 
@@ -96,11 +95,9 @@ function onLoadMore(e) {
       e.target.textContent = 'See Less';
     } else {
       for (let i = 0; i < categoryItems.length; i++) {
-        // Ще тут було б добре скролити до початку списку, зараз до верху
         if (i > 4) {
           categoryItems[i].classList = 'items-is-hidden';
           e.target.textContent = 'See More';
-          // topFunctionToDiv(wrapperForGenge);
         }
       }
     }
@@ -181,15 +178,19 @@ function renderListOfCategories(book_image, title, author, _id) {
           </li>`;
   const link = document.querySelector('.link');
 
-  // link.addEventListener('click', (onClickOpenPopUp));
-
   return bookList;
 }
 
+categoryDivWraper.addEventListener('click', onClickOpenPopUp);
+
 function onClickOpenPopUp(e) {
-  // e.preventDefault();
-  // зробити перевірку кліку
-  // Функція відкриття модалки id
+  if (e.target.parentNode.nodeName === 'A') {
+    e.preventDefault();
+
+    const id = e.target.parentNode.id;
+
+    // openModalPopUp(id);
+  }
 }
 
 function renderBlockForCategories(bookList) {
@@ -223,11 +224,6 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
-// function topFunctionToDiv() {
-//   window.scrollTop; // For Safari
-//   // document.documentElement.scrollTo = 300; // For Chrome, Firefox, IE and Opera
-// }
 
 /* <div class="category-wraper">
       <h1 class="">Best Sellers <span class="">Books</span></h1>
