@@ -1,11 +1,33 @@
 /* категорії */
 
 /* both categories & support funds container  */
+/* mobile */
 .list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  gap: 40px;
 }
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .list {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 1440px) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 86px;
+  }
+}
+
 /* mobile */
 .categories-container {
   width: 335px;
