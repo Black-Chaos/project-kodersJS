@@ -148,20 +148,21 @@ function renderMarkupTitle(nameOfCategory) {
 
   categoryDivWraper.insertAdjacentHTML(
     'beforeend',
-    `<h1 class="title">${firstWords.join(
+    `<h1 class="main-title">${firstWords.join(
       ' '
-    )} <span class = "">${lastWord}</span></h1><div class="wraper"></div>`
+    )} <span class = "main-title-span">${lastWord}</span></h1>`
   );
 }
 
 function renderMarkupForCategory(resp) {
   if (resp.length > 0) {
-    resp
-      .map(({ book_image, title, author, _id }) => {
-        const bookList = renderListOfCategories(book_image, title, author, _id);
-        renderBlockForCategories(bookList);
-      })
-      .join('');
+    let bookList = '';
+    resp.map(({ book_image, title, author, _id }) => {
+      const bookLi = renderListOfCategories(book_image, title, author, _id);
+      bookList += bookLi;
+    });
+
+    renderBlockForCategories(bookList);
   } else {
     const bookList = renderCorkItem();
     renderBlockForCategories(bookList);
@@ -196,8 +197,7 @@ function onClickOpenPopUp(e) {
 function renderBlockForCategories(bookList) {
   const categoryUl = `<ul class="category-list">${bookList}</ul>`;
 
-  const wraper = document.querySelector('.wraper');
-  wraper.insertAdjacentHTML('beforeend', categoryUl);
+  categoryDivWraper.insertAdjacentHTML('beforeend', categoryUl);
 }
 
 const btn = document.getElementById('btn-to-top');
