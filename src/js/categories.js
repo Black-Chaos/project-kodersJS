@@ -2,7 +2,6 @@ import Book_api from './APIs/book-api';
 import { getAllCategoriesBookTopList, getBooksOfCategory } from './home';
 
 const categoryColumn = document.querySelector('.categories-elements');
-const categoryDivWrapper = document.querySelector('.category-wrapper');
 
 const book = new Book_api();
 
@@ -37,13 +36,9 @@ function onCategoriesHandle(event) {
   event.target.classList.add('active');
 
   if (event.target.textContent === 'All categories') {
-    clearMarkup();
     getAllCategoriesBookTopList();
     return;
   }
 
-  clearMarkup();
   getBooksOfCategory(event.target.textContent);
 }
-
-const clearMarkup = () => (categoryDivWrapper.innerHTML = '');

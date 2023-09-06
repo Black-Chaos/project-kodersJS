@@ -8,6 +8,7 @@ getAllCategoriesBookTopList();
 export function getAllCategoriesBookTopList() {
   try {
     book.getTopBooks().then(resp => {
+      categoryDivWraper.innerHTML = '';
       renderTitleForTopCategories();
       renderMarkupForTopCategories(resp);
     });
@@ -135,7 +136,7 @@ export function getBooksOfCategory(nameOfCategory) {
       // if (nameOfCategory === 'Advice How-To and Miscellaneous') {
       //   resp = [];
       // }
-
+      categoryDivWraper.innerHTML = '';
       renderMarkupTitle(nameOfCategory);
       renderMarkupForCategory(resp);
     });
