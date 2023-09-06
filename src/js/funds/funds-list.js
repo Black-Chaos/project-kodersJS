@@ -20,19 +20,9 @@ const supportFunds = [
     img: `${hope}`,
   },
   {
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
-    img: `${united}`,
-  },
-  {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
     img: `${medCorp}`,
-  },
-  {
-    title: 'Medicins Sans Frontieres',
-    url: 'https://www.msf.org/ukraine',
-    img: `${medSans}`,
   },
   {
     title: 'RAZOM',
@@ -45,14 +35,24 @@ const supportFunds = [
     img: `${hunger}`,
   },
   {
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
+    img: `${prytula}`,
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: `${medSans}`,
+  },
+  {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
     img: `${worldVision}`,
   },
   {
-    title: 'Serhiy Prytula Charity Foundation',
-    url: 'https://prytulafoundation.org/en',
-    img: `${prytula}`,
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: `${united}`,
   },
 ];
 
