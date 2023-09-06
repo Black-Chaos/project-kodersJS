@@ -52,8 +52,8 @@
     text-transform: uppercase;
     max-width: 335px;
     overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 
     margin-top: 14px;
@@ -69,8 +69,8 @@
     letter-spacing: -0.48px;
     max-width: 335px;
     overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
@@ -112,10 +112,12 @@
         width: 218px;
         height: 316px;
     }
-.book-title,
-.book-author {
-    max-width: 218px;
-}
+
+    .book-title,
+    .book-author {
+        max-width: 218px;
+    }
+
     .wrapper:not(:first-child) {
         display: flex;
         flex-wrap: wrap;
@@ -151,31 +153,35 @@
 @media screen and (min-width: 1440px) {
 
     .category-wrapper {
-            max-width: 996px;
-        }
-        .img {
-            width: 180px;
-            height: 256px;
-        }
+        max-width: 996px;
+    }
+
+    .img {
+        width: 180px;
+        height: 256px;
+    }
+
     .main-title,
     .main-title-span {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -1.92px;
-                }
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -1.92px;
+    }
 
     .category-list {
-    gap: 24px;
-                                }
-        
-        .button {
-            margin-top: 32px;
-        }
-        .book-title,
-        .book-author {
-            max-width: 180px;
-        }}
+        gap: 24px;
+    }
+
+    .button {
+        margin-top: 32px;
+    }
+
+    .book-title,
+    .book-author {
+        max-width: 180px;
+    }
+}
 
 /* ------------Катя добавила------------ */
 
@@ -183,16 +189,46 @@
     display: none;
 }
 
-.cork-wraper-svg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@media screen and (min-width: 375px) {
+    .cork-wraper-svg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-    width: 385px;
-    height: 485px;
-    border-radius: 8px;
-    background: #FFF;
+        width: 385px;
+        height: 485px;
+        border-radius: 8px;
+        background: #FFF;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .cork-wraper-svg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        /* width: 385px;
+            height: 485px; */
+        border-radius: 8px;
+        background: #FFF;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .cork-wraper-svg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        /* width: 385px;
+                height: 485px; */
+        border-radius: 8px;
+        background: #FFF;
+    }
 }
 
 .cork-use {
