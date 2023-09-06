@@ -112,7 +112,10 @@
         width: 218px;
         height: 316px;
     }
-
+.book-title,
+.book-author {
+    max-width: 218px;
+}
     .wrapper:not(:first-child) {
         display: flex;
         flex-wrap: wrap;
@@ -168,6 +171,10 @@
         
         .button {
             margin-top: 32px;
+        }
+        .book-title,
+        .book-author {
+            max-width: 180px;
         }}
 
 /* ------------Катя добавила------------ */
