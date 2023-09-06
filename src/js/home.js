@@ -72,7 +72,9 @@ function renderBlockForTopCategories(list_name, bookList) {
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
 
-  const wrapperForGenre = document.querySelector('.wrapper-for-genre');
+  const categoryList = document.querySelector('.category-list');
+  categoryList.addEventListener('click', onClickOpenPopUp);
+
   const btnSeeMore = document.querySelector('.button');
 
   if (bookList.includes('<li class = "cork">')) {
@@ -151,7 +153,6 @@ function renderMarkupTitle(nameOfCategory) {
     `<h1 class="main-title">${firstWords.join(
       ' '
     )} <span class = "main-title-span">${lastWord}</span></h1>`
-
   );
 }
 
