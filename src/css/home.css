@@ -7,6 +7,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    flex-direction: column;
 }
 
 .wrapper-for-genre {
@@ -196,47 +197,65 @@
         align-items: center;
         justify-content: center;
 
-        width: 385px;
+        width: 335px;
         height: 485px;
         border-radius: 8px;
         background: #FFF;
+    }
+
+    .cork-text {
+        color: var(--second-text-card);
+        font-size: 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .cork-svg {
+        width: 88px;
+        height: 80px;
+        fill: var(--brand-color);
     }
 }
 
 @media screen and (min-width: 768px) {
     .cork-wraper-svg {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        width: 218px;
+        height: 316px;
+    }
 
-        /* width: 385px;
-            height: 485px; */
-        border-radius: 8px;
-        background: #FFF;
+    .cork-text {
+        color: var(--second-text-card);
+        font-size: 14px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .cork-svg {
+        width: 60px;
+        height: 54px;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .cork-wraper-svg {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        width: 180px;
+        height: 256px;
+    }
 
-        /* width: 385px;
-                height: 485px; */
-        border-radius: 8px;
-        background: #FFF;
+    .cork-text {
+        color: var(--second-text-card);
+        font-size: 14px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .cork-svg {
+        width: 44px;
+        height: 40px;
     }
 }
 
-.cork-use {
-    width: 88px;
-    height: 80px;
-    fill: var(--brand-color);
 
-}
 
 .cork-text {
     margin-top: 20px;
