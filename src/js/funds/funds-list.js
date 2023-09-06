@@ -61,7 +61,7 @@ function supportFundsMarkup(supportFunds) {
     .map((fund, index) => {
       const listIndex = String(index + 1).padStart(2, '0');
       return `<div><li class="support-column">
-  <span class="support-index">${listIndex}</span><a class="fund-link" href="${fund.url}" rel="noopener noreferrer nofollow">
+  <span class="support-index">${listIndex}</span><a class="fund-link" href="${fund.url}" target="_blank" rel="noopener noreferrer nofollow">
   <img class="fund-img-link" src="${fund.img}" alt="${fund.title}"></a>
 </li></div>
 `;
