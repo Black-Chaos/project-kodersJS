@@ -87,13 +87,6 @@ function onLoadMore(e) {
   const categoryList = e.target.previousElementSibling;
 
   const categoryItems = categoryList.children;
-  console.log(categoryItems);
-
-  let coordYListName = document
-    .querySelector('.list-name')
-    .getBoundingClientRect().y;
-  // console.log('coordYListName ', coordYListName);
-  // тут ще потрібно доробити
 
   if (e.target.textContent === 'See More') {
     categoryList.innerHTML = '';
@@ -105,8 +98,6 @@ function onLoadMore(e) {
       if (i > 4) {
         categoryItems[i].classList = 'items-is-hidden';
         e.target.textContent = 'See More';
-
-        topFunctionToDiv(coordYListName);
       }
     }
   }
@@ -230,14 +221,6 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-function topFunctionToDiv(coordYListName) {
-  window.scrollBy({
-    top: coordYListName,
-    left: 0,
-    behavior: 'smooth',
-  });
 }
 
 /* <div class="category-wraper">
