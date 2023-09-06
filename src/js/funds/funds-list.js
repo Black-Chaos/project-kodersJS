@@ -8,7 +8,7 @@ import hunger from '../../img/funds/action-against-hunger@1x.png';
 import worldVision from '../../img/funds/world-vision@1x.png';
 import prytula from '../../img/funds/sergiy-prytula@1x.png';
 
-const supportFunds = [
+export default [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
@@ -20,9 +20,19 @@ const supportFunds = [
     img: `${hope}`,
   },
   {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: `${united}`,
+  },
+  {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
     img: `${medCorp}`,
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: `${medSans}`,
   },
   {
     title: 'RAZOM',
@@ -35,42 +45,13 @@ const supportFunds = [
     img: `${hunger}`,
   },
   {
-    title: 'Serhiy Prytula Charity Foundation',
-    url: 'https://prytulafoundation.org/en',
-    img: `${prytula}`,
-  },
-  {
-    title: 'Medicins Sans Frontieres',
-    url: 'https://www.msf.org/ukraine',
-    img: `${medSans}`,
-  },
-  {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
     img: `${worldVision}`,
   },
   {
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
-    img: `${united}`,
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
+    img: `${prytula}`,
   },
 ];
-
-function supportFundsMarkup(supportFunds) {
-  const markup = supportFunds
-    .map((fund, index) => {
-      const listIndex = String(index + 1).padStart(2, '0');
-      return `<div><li class="support-column">
-  <span class="support-index">${listIndex}</span><a class="fund-link" href="${fund.url}" target="_blank" rel="noopener noreferrer nofollow">
-  <img class="fund-img-link" src="${fund.img}" alt="${fund.title}"></a>
-</li></div>
-`;
-    })
-    .join('');
-  return markup;
-}
-
-// const fundsColumn = document.querySelector('.support-funds-list');
-// fundsColumn.insertAdjacentHTML('beforeend', supportFundsMarkup(supportFunds));
-
-export { supportFundsMarkup, supportFunds };
