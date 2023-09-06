@@ -55,7 +55,7 @@ function renderListOfTopCategories(books) {
 function renderCorkItem() {
   return `<li class = "cork">
             <div class="cork-wraper-svg">
-            <svg width="88" height="80">
+            <svg class="cork-svg">
               <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
             </svg>
             <p class = "cork-text">Sorry, the book will be added later...</p>
@@ -72,7 +72,9 @@ function renderBlockForTopCategories(list_name, bookList) {
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
 
-  const wrapperForGenre = document.querySelector('.wrapper-for-genre');
+  const categoryList = document.querySelector('.category-list');
+  categoryList.addEventListener('click', onClickOpenPopUp);
+
   const btnSeeMore = document.querySelector('.button');
 
   if (bookList.includes('<li class = "cork">')) {
@@ -151,7 +153,6 @@ function renderMarkupTitle(nameOfCategory) {
     `<h1 class="main-title">${firstWords.join(
       ' '
     )} <span class = "main-title-span">${lastWord}</span></h1>`
-
   );
 }
 
@@ -183,22 +184,23 @@ function renderListOfCategories(book_image, title, author, _id) {
   return bookList;
 }
 
-categoryDivWraper.addEventListener('click', onClickOpenPopUp);
-
-function onClickOpenPopUp(e) {
-  if (e.target.parentNode.nodeName === 'A') {
-    e.preventDefault();
-
-    const id = e.target.parentNode.id;
-
-    // openModalPopUp(id);
-  }
-}
-
 function renderBlockForCategories(bookList) {
   const categoryUl = `<ul class="category-list">${bookList}</ul>`;
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryUl);
+
+  const categoryList = document.querySelector('.category-list');
+  categoryList.addEventListener('click', onClickOpenPopUp);
+}
+
+function onClickOpenPopUp(e) {
+  e.preventDefault();
+  if (e.target.parentNode.nodeName !== 'A') {
+    return;
+  }
+  const id = e.target.parentNode.id;
+
+  // openModalPopUp(id);
 }
 
 const btn = document.getElementById('btn-to-top');
@@ -225,49 +227,3 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
-/* <div class="category-wraper">
-      <h1 class="">Best Sellers <span class="">Books</span></h1>
-      <div class="wrapper-for-genre">
-        <h2 class="">${list_name}</h2>
-        <ul class="category-list">
-          <li class = "">
-            <a href="#" class="link"
-              ><img class="img" src="${book_image}" />
-              <h3 class = "">${title}</h3>
-              <p class = "">${author}</p>
-            </a>
-          </li>
-        </ul>
-        <button class="btn-see-more" type="button">see more</button>
-      </div>
-</div> */
-
-/* <li class = "cork">
-            <div class="cork-wraper-svg">
-            <svg width="88" height="80">
-              <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
-            </svg>
-            <p class = "cork-text">Sorry, the book will be added later...</p>
-            </div>
-        </li> */
-
-// <div>
-//   <h1 class="main-title">
-//     ${firstWords.join(' ')}
-//     <span class="main-title-span">${lastWord}</span>
-//   </h1>
-// </div>
-// <div class="wrapper-for-genre">
-//   <h2 class="list-name">${list_name}</h2>
-//   <ul class="category-list">
-//     <li class="wrapper">
-//       <a href="#" class="link"
-//         ><img class="img" src="${book_image}" />
-//         <h3 class="book-title">${title}</h3>
-//         <p class="book-author">${author}</p>
-//       </a>
-//     </li>
-//   </ul>
-//   <button class="button" type="button">See More</button>
-// </div>
