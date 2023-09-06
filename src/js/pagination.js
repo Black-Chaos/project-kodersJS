@@ -3,9 +3,13 @@ import { createShoplistCard } from '../shop-list'
 
 
 const galleryItems = JSON.parse(localStorage.getItem('shoppingList'));
+
 const container = document.getElementById('pagination');
 const ulEl = document.querySelector('.shop-list-js');
-const newElImg = createShoplistCard(galleryItems);
+
+if (galleryItems !== null) {
+  if (galleryItems.length > 0) {
+    const newElImg = createShoplistCard(galleryItems);
 
 
 ulEl.insertAdjacentHTML('beforeend', newElImg);
@@ -27,7 +31,12 @@ pagination.on('afterMove', event => {
   renderGalleryItems(currentPage);
 });
 
-renderGalleryItems(1);
+  renderGalleryItems(1);
+  
+  }
+}
+
+
 
 function renderGalleryItems(page) {
   const startIndex = (page - 1) * itemsPerPage;
