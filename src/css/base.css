@@ -9,7 +9,6 @@
     --second-text-card: #B4AFAF;
     --fund-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
     --menu-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
-    --popup-message: rgba(17, 17, 17, 0.50);
     --default-text-shop-list: rgba(0, 0, 0, 0.60);
     --shop-list-card-border: rgba(79, 46, 232, 0.4);
     --start-backdrop-gradient-bg: rgba(204, 236, 231, 0.50);
@@ -32,7 +31,6 @@
     --main-background: #202024;
     --category: rgba(255, 255, 255, 0.60);
     --active-category: #EAC645;
-    --popup-message: rgba(255, 255, 255, 0.50);
     --default-text-shop-list: rgba(255, 255, 255, 0.60);
     --start-modal-bg: #202024;
     --start-modal-text-border: #F6F6F6;
