@@ -27,6 +27,10 @@ function renderTitleForTopCategories() {
 function renderMarkupForTopCategories(resp) {
   resp
     .map(({ list_name, books }) => {
+      // Для імітації порожного вмісту категорії
+      // if (list_name === 'Advice How-To and Miscellaneous') {
+      //   books = [];
+      // }
       const bookList = renderListOfTopCategories(books);
 
       renderBlockForTopCategories(list_name, bookList);
@@ -129,6 +133,11 @@ function renderMarkupByBtnMore(resp, categoryList) {
 export function getBooksOfCategory(nameOfCategory) {
   try {
     book.getBookByCategory(nameOfCategory).then(resp => {
+      // Для імітації порожного вмісту категорії
+      // if (nameOfCategory === 'Advice How-To and Miscellaneous') {
+      //   resp = [];
+      // }
+
       renderMarkupTitle(nameOfCategory);
       renderMarkupForCategory(resp);
     });
