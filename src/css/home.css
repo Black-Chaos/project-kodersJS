@@ -92,7 +92,7 @@
 
 }
 
-.wrapper:not(:first-child) {
+.wrapper-for-book:not(:first-child) {
     display: none;
 }
 
