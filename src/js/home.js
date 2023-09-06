@@ -1,4 +1,6 @@
 import Book_api from './APIs/book-api';
+import iconCorkBook from '../img/icons.svg';
+// import { openModalPopUp } from './popup';
 
 const book = new Book_api();
 const categoryDivWraper = document.querySelector('.category-wrapper');
@@ -53,7 +55,7 @@ function renderListOfTopCategories(books) {
 function renderCorkItem() {
   return `<li class = "cork">
             <div class="cork-wraper-svg">
-            <svg width="88" height="80">
+            <svg class="cork-svg">
               <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
             </svg>
             <p class = "cork-text">Sorry, the book will be added later...</p>
@@ -70,7 +72,9 @@ function renderBlockForTopCategories(list_name, bookList) {
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
 
-  const wrapperForGenre = document.querySelector('.wrapper-for-genre');
+  const categoryList = document.querySelector('.category-list');
+  categoryList.addEventListener('click', onClickOpenPopUp);
+
   const btnSeeMore = document.querySelector('.button');
 
   if (bookList.includes('<li class = "cork">')) {
@@ -86,9 +90,6 @@ function onLoadMore(e) {
     const categoryList = e.target.previousElementSibling;
     const categoryItems = categoryList.children;
 
-    // const wrapperForGenge = e.target.parentNode; -----на тайтл
-    // console.log(wrapperForGenge);
-
     if (e.target.textContent === 'See More') {
       categoryList.innerHTML = '';
 
@@ -96,11 +97,9 @@ function onLoadMore(e) {
       e.target.textContent = 'See Less';
     } else {
       for (let i = 0; i < categoryItems.length; i++) {
-        // Ще тут було б добре скролити до початку списку, зараз до верху
         if (i > 4) {
           categoryItems[i].classList = 'items-is-hidden';
           e.target.textContent = 'See More';
-          // topFunctionToDiv(wrapperForGenge);
         }
       }
     }
@@ -151,20 +150,21 @@ function renderMarkupTitle(nameOfCategory) {
 
   categoryDivWraper.insertAdjacentHTML(
     'beforeend',
-    `<h1 class="title">${firstWords.join(
+    `<h1 class="main-title">${firstWords.join(
       ' '
-    )} <span class = "">${lastWord}</span></h1><div class="wraper"></div>`
+    )} <span class = "main-title-span">${lastWord}</span></h1>`
   );
 }
 
 function renderMarkupForCategory(resp) {
   if (resp.length > 0) {
-    resp
-      .map(({ book_image, title, author, _id }) => {
-        const bookList = renderListOfCategories(book_image, title, author, _id);
-        renderBlockForCategories(bookList);
-      })
-      .join('');
+    let bookList = '';
+    resp.map(({ book_image, title, author, _id }) => {
+      const bookLi = renderListOfCategories(book_image, title, author, _id);
+      bookList += bookLi;
+    });
+
+    renderBlockForCategories(bookList);
   } else {
     const bookList = renderCorkItem();
     renderBlockForCategories(bookList);
@@ -181,22 +181,26 @@ function renderListOfCategories(book_image, title, author, _id) {
           </li>`;
   const link = document.querySelector('.link');
 
-  // link.addEventListener('click', (onClickOpenPopUp));
-
   return bookList;
-}
-
-function onClickOpenPopUp(e) {
-  // e.preventDefault();
-  // зробити перевірку кліку
-  // Функція відкриття модалки id
 }
 
 function renderBlockForCategories(bookList) {
   const categoryUl = `<ul class="category-list">${bookList}</ul>`;
 
-  const wraper = document.querySelector('.wraper');
-  wraper.insertAdjacentHTML('beforeend', categoryUl);
+  categoryDivWraper.insertAdjacentHTML('beforeend', categoryUl);
+
+  const categoryList = document.querySelector('.category-list');
+  categoryList.addEventListener('click', onClickOpenPopUp);
+}
+
+function onClickOpenPopUp(e) {
+  e.preventDefault();
+  if (e.target.parentNode.nodeName !== 'A') {
+    return;
+  }
+  const id = e.target.parentNode.id;
+
+  // openModalPopUp(id);
 }
 
 const btn = document.getElementById('btn-to-top');
@@ -223,54 +227,3 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
-// function topFunctionToDiv() {
-//   window.scrollTop; // For Safari
-//   // document.documentElement.scrollTo = 300; // For Chrome, Firefox, IE and Opera
-// }
-
-/* <div class="category-wraper">
-      <h1 class="">Best Sellers <span class="">Books</span></h1>
-      <div class="wrapper-for-genre">
-        <h2 class="">${list_name}</h2>
-        <ul class="category-list">
-          <li class = "">
-            <a href="#" class="link"
-              ><img class="img" src="${book_image}" />
-              <h3 class = "">${title}</h3>
-              <p class = "">${author}</p>
-            </a>
-          </li>
-        </ul>
-        <button class="btn-see-more" type="button">see more</button>
-      </div>
-</div> */
-
-/* <li class = "cork">
-            <div class="cork-wraper-svg">
-            <svg width="88" height="80">
-              <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
-            </svg>
-            <p class = "cork-text">Sorry, the book will be added later...</p>
-            </div>
-        </li> */
-
-// <div>
-//   <h1 class="main-title">
-//     ${firstWords.join(' ')}
-//     <span class="main-title-span">${lastWord}</span>
-//   </h1>
-// </div>
-// <div class="wrapper-for-genre">
-//   <h2 class="list-name">${list_name}</h2>
-//   <ul class="category-list">
-//     <li class="wrapper">
-//       <a href="#" class="link"
-//         ><img class="img" src="${book_image}" />
-//         <h3 class="book-title">${title}</h3>
-//         <p class="book-author">${author}</p>
-//       </a>
-//     </li>
-//   </ul>
-//   <button class="button" type="button">See More</button>
-// </div>
