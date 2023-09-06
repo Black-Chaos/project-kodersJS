@@ -91,12 +91,12 @@ header {
     }
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1439px) {
   .library .container {
     flex-direction: column;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1440px) {
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
     .container {
     gap: 100px;
   }
