@@ -56,7 +56,7 @@ function renderCorkItem() {
   return `<li class = "cork">
             <div class="cork-wraper-svg">
             <svg width="88" height="80">
-              <use class="cork-use" href="${iconCorkBook}#icon-cork-book"></use>
+              <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
             </svg>
             <p class = "cork-text">Sorry, the book will be added later...</p>
             </div>
@@ -72,32 +72,33 @@ function renderBlockForTopCategories(list_name, bookList) {
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
 
+  const wrapperForGenre = document.querySelector('.wrapper-for-genre');
   const btnSeeMore = document.querySelector('.button');
-
-  categoryDivWraper.addEventListener('click', onLoadMore);
 
   if (bookList.includes('<li class = "cork">')) {
     btnSeeMore.classList.add('is-hidden');
   }
 }
 
+categoryDivWraper.addEventListener('click', onLoadMore);
+
 function onLoadMore(e) {
-  const title = e.target.parentNode.firstElementChild.textContent;
+  if (e.target.nodeName === 'BUTTON') {
+    const title = e.target.parentNode.firstElementChild.textContent;
+    const categoryList = e.target.previousElementSibling;
+    const categoryItems = categoryList.children;
 
-  const categoryList = e.target.previousElementSibling;
+    if (e.target.textContent === 'See More') {
+      categoryList.innerHTML = '';
 
-  const categoryItems = categoryList.children;
-
-  if (e.target.textContent === 'See More') {
-    categoryList.innerHTML = '';
-
-    getBooksbyBtnMore(title, categoryList);
-    e.target.textContent = 'See Less';
-  } else {
-    for (let i = 0; i < categoryItems.length; i++) {
-      if (i > 4) {
-        categoryItems[i].classList = 'items-is-hidden';
-        e.target.textContent = 'See More';
+      getBooksbyBtnMore(title, categoryList);
+      e.target.textContent = 'See Less';
+    } else {
+      for (let i = 0; i < categoryItems.length; i++) {
+        if (i > 4) {
+          categoryItems[i].classList = 'items-is-hidden';
+          e.target.textContent = 'See More';
+        }
       }
     }
   }
@@ -175,6 +176,7 @@ function renderListOfCategories(book_image, title, author, _id) {
                 <p class = "book-author">${author}</p>
               </a>
           </li>`;
+  const link = document.querySelector('.link');
 
   return bookList;
 }
