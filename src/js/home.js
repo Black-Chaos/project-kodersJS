@@ -85,7 +85,7 @@ function onLoadMore(e) {
     const categoryList = e.target.previousElementSibling;
     const categoryItems = categoryList.children;
 
-    const wrapperForGenge = e.target.parentNode;
+    // const wrapperForGenge = e.target.parentNode; -----на тайтл
     // console.log(wrapperForGenge);
 
     if (e.target.textContent === 'See More') {
@@ -185,8 +185,10 @@ function renderListOfCategories(book_image, title, author, _id) {
   return bookList;
 }
 
-function onClickOpenPopUp(_id) {
-  // Функція відкриття модалки
+function onClickOpenPopUp(e) {
+  // e.preventDefault();
+  // зробити перевірку кліку
+  // Функція відкриття модалки id
 }
 
 function renderBlockForCategories(bookList) {
