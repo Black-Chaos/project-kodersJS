@@ -3,12 +3,58 @@
 @import url('./header.css');
 @import url('./funds.css');
 
-
 /**
     |============================
     | SHOPPING-LIST EMPTY
     |============================
   */
+
+.support-wrapper .shop-list-section {
+  display: none;
+}
+
+@media only screen and (min-width: 1440px) {
+  .support-wrapper .shop-list-section {
+    position: relative;
+    width: 335px;
+    height: 474px;
+
+    padding-left: 40px;
+    padding-top: 26px;
+    padding-bottom: 24px;
+    padding-right: 40px;
+
+    background: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%
+    );
+    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+    border-radius: 16px;
+  }
+
+  .support-wrapper .support-slider-btn .shop-list-section {
+    position: relative;
+    display: block;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 24px;
+  }
+
+  .slider-next-button {
+    margin-top: 8px;
+  }
+}
 
 .shop-list-empty {
   display: flex;
