@@ -1,4 +1,6 @@
 import Book_api from './APIs/book-api';
+import iconCorkBook from '../img/icons.svg';
+// import { openModalPopUp } from './popup';
 
 const book = new Book_api();
 const categoryDivWraper = document.querySelector('.category-wrapper');
@@ -54,7 +56,7 @@ function renderCorkItem() {
   return `<li class = "cork">
             <div class="cork-wraper-svg">
             <svg width="88" height="80">
-              <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
+              <use class="cork-use" href="${iconCorkBook}#icon-cork-book"></use>
             </svg>
             <p class = "cork-text">Sorry, the book will be added later...</p>
             </div>
@@ -70,38 +72,41 @@ function renderBlockForTopCategories(list_name, bookList) {
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
 
-  const wrapperForGenre = document.querySelector('.wrapper-for-genre');
   const btnSeeMore = document.querySelector('.button');
+
+  categoryDivWraper.addEventListener('click', onLoadMore);
 
   if (bookList.includes('<li class = "cork">')) {
     btnSeeMore.classList.add('is-hidden');
   }
 }
 
-categoryDivWraper.addEventListener('click', onLoadMore);
-
 function onLoadMore(e) {
-  if (e.target.nodeName === 'BUTTON') {
-    const title = e.target.parentNode.firstElementChild.textContent;
-    const categoryList = e.target.previousElementSibling;
-    const categoryItems = categoryList.children;
+  const title = e.target.parentNode.firstElementChild.textContent;
 
-    // const wrapperForGenge = e.target.parentNode; -----на тайтл
-    // console.log(wrapperForGenge);
+  const categoryList = e.target.previousElementSibling;
 
-    if (e.target.textContent === 'See More') {
-      categoryList.innerHTML = '';
+  const categoryItems = categoryList.children;
+  console.log(categoryItems);
 
-      getBooksbyBtnMore(title, categoryList);
-      e.target.textContent = 'See Less';
-    } else {
-      for (let i = 0; i < categoryItems.length; i++) {
-        // Ще тут було б добре скролити до початку списку, зараз до верху
-        if (i > 4) {
-          categoryItems[i].classList = 'items-is-hidden';
-          e.target.textContent = 'See More';
-          // topFunctionToDiv(wrapperForGenge);
-        }
+  let coordYListName = document
+    .querySelector('.list-name')
+    .getBoundingClientRect().y;
+  // console.log('coordYListName ', coordYListName);
+  // тут ще потрібно доробити
+
+  if (e.target.textContent === 'See More') {
+    categoryList.innerHTML = '';
+
+    getBooksbyBtnMore(title, categoryList);
+    e.target.textContent = 'See Less';
+  } else {
+    for (let i = 0; i < categoryItems.length; i++) {
+      if (i > 4) {
+        categoryItems[i].classList = 'items-is-hidden';
+        e.target.textContent = 'See More';
+
+        topFunctionToDiv(coordYListName);
       }
     }
   }
@@ -179,17 +184,20 @@ function renderListOfCategories(book_image, title, author, _id) {
                 <p class = "book-author">${author}</p>
               </a>
           </li>`;
-  const link = document.querySelector('.link');
-
-  // link.addEventListener('click', (onClickOpenPopUp));
 
   return bookList;
 }
 
+categoryDivWraper.addEventListener('click', onClickOpenPopUp);
+
 function onClickOpenPopUp(e) {
-  // e.preventDefault();
-  // зробити перевірку кліку
-  // Функція відкриття модалки id
+  if (e.target.parentNode.nodeName === 'A') {
+    e.preventDefault();
+
+    const id = e.target.parentNode.id;
+
+    // openModalPopUp(id);
+  }
 }
 
 function renderBlockForCategories(bookList) {
@@ -224,10 +232,13 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-// function topFunctionToDiv() {
-//   window.scrollTop; // For Safari
-//   // document.documentElement.scrollTo = 300; // For Chrome, Firefox, IE and Opera
-// }
+function topFunctionToDiv(coordYListName) {
+  window.scrollBy({
+    top: coordYListName,
+    left: 0,
+    behavior: 'smooth',
+  });
+}
 
 /* <div class="category-wraper">
       <h1 class="">Best Sellers <span class="">Books</span></h1>
