@@ -151,9 +151,9 @@ function renderMarkupTitle(nameOfCategory) {
 
   categoryDivWraper.insertAdjacentHTML(
     'beforeend',
-    `<h1 class="title">${firstWords.join(
+    `<h1 class="main-title">${firstWords.join(
       ' '
-    )} <span class = "">${lastWord}</span></h1><div class="wraper"></div>`
+    )} <span class = "main-title-span">${lastWord}</span></h1><div class="wraper"></div>`
   );
 }
 

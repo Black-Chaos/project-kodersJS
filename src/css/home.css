@@ -33,6 +33,7 @@
 .list-name {
     color: var(--second-text-card);
     letter-spacing: 0.42px;
+    font-weight: 400;
     text-transform: uppercase;
     margin-bottom: 18px;
 }
@@ -45,32 +46,30 @@
 
 
 .book-title {
-    color: var(--text-color);
     font-size: 16px;
     font-weight: 700;
     line-height: 1.12;
     text-transform: uppercase;
-    max-width: 335px;
-    overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-
-
+    letter-spacing: -0.64px;
     margin-top: 14px;
     margin-bottom: 4px;
+        max-width: 335px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
 
 }
 
-.book-auhtor {
-    color: --second-text-card;
+.book-author {
+    color: var(--second-text-card);
     font-size: 12px;
     font-style: italic;
     line-height: 1.16;
     letter-spacing: -0.48px;
-    max-width: 335px;
-    overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        max-width: 335px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
 }
 
 
@@ -85,12 +84,13 @@
     letter-spacing: -0.14px;
     text-transform: uppercase;
     border-radius: 40px;
-    border: 2px solid --brand-color;
+    border: 2px solid var(--brand-color);
     padding: 14px 28px;
     float: right;
     margin-top: 8px;
 
 }
+
 
 .wrapper-for-book:not(:first-child) {
     display: none;
@@ -112,6 +112,7 @@
         width: 218px;
         height: 316px;
     }
+
 .book-title,
 .book-author {
     max-width: 218px;
@@ -172,10 +173,10 @@
         .button {
             margin-top: 32px;
         }
-        .book-title,
-        .book-author {
-            max-width: 180px;
-        }}
+                .book-title,
+                .book-author {
+                    max-width: 180px;
+                }}
 
 /* ------------Катя добавила------------ */
 
