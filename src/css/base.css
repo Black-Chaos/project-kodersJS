@@ -9,7 +9,6 @@
     --second-text-card: #B4AFAF;
     --fund-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
     --menu-background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
-    --popup-message: rgba(17, 17, 17, 0.50);
     --default-text-shop-list: rgba(0, 0, 0, 0.60);
     --shop-list-card-border: rgba(79, 46, 232, 0.4);
     --start-backdrop-gradient-bg: rgba(204, 236, 231, 0.50);
@@ -18,9 +17,11 @@
     --start-modal-text-border: #111;
     --start-modal-btn-bg: #111;
     --start-modal-btn-text: #F3F3F3;
+    --popup-bg: #FFF;
     --popup-filter-shop: grayscale(100%);
     --popup-filter-shop-amazon: grayscale(100%);
     --popup-filter-shop-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, .35));
+    --popup-message: rgba(17, 17, 17, 0.50);
     --popup-backdrop: rgba(17, 17, 17, 0.40);
 }
 
@@ -30,14 +31,15 @@
     --main-background: #202024;
     --category: rgba(255, 255, 255, 0.60);
     --active-category: #EAC645;
-    --popup-message: rgba(255, 255, 255, 0.50);
     --default-text-shop-list: rgba(255, 255, 255, 0.60);
     --start-modal-bg: #202024;
     --start-modal-text-border: #F6F6F6;
     --start-modal-btn-bg: #F6F6F6;
     --start-modal-btn-text: #202024;
+    --popup-bg: #202024;
     --popup-filter-shop-amazon: brightness(0) invert(1);
     --popup-filter-shop-hover: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+    --popup-message: rgba(255, 255, 255, 0.50);
 }
 
 body {
