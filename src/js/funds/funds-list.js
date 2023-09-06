@@ -57,22 +57,20 @@ const supportFunds = [
 ];
 
 function supportFundsMarkup(supportFunds) {
-  // const isHighResolutionScreen = window.devicePixelRatio > 1;
-
   const markup = supportFunds
     .map((fund, index) => {
       const listIndex = String(index + 1).padStart(2, '0');
-      return `<li class="support-column">
+      return `<div><li class="support-column">
   <span class="support-index">${listIndex}</span><a class="fund-link" href="${fund.url}" rel="noopener noreferrer nofollow">
   <img class="fund-img-link" src="${fund.img}" alt="${fund.title}"></a>
-</li>
+</li></div>
 `;
     })
     .join('');
   return markup;
 }
 
-const fundsColumn = document.querySelector('.support-funds-list');
-fundsColumn.insertAdjacentHTML('beforeend', supportFundsMarkup(supportFunds));
+// const fundsColumn = document.querySelector('.support-funds-list');
+// fundsColumn.insertAdjacentHTML('beforeend', supportFundsMarkup(supportFunds));
 
-export { supportFundsMarkup };
+export { supportFundsMarkup, supportFunds };
