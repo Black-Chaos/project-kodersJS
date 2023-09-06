@@ -151,6 +151,7 @@ function renderMarkupTitle(nameOfCategory) {
     `<h1 class="main-title">${firstWords.join(
       ' '
     )} <span class = "main-title-span">${lastWord}</span></h1>`
+
   );
 }
 

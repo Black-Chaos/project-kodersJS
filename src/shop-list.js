@@ -1,4 +1,5 @@
 import './js/header';
+import './js/funds';
 import iconsSvg from './img/icons.svg';
 import amazonIcon from './img/internet-shops/amazon@1x.png';
 import appleIcon from './img//internet-shops/book@1x.png';
