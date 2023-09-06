@@ -1,4 +1,8 @@
 import './js/header';
+import iconsSvg from './img/icons.svg';
+import amazonIcon from './img/internet-shops/amazon@1x.png';
+import appleIcon from './img//internet-shops/book@1x.png';
+import bookshopIcon from './img/internet-shops/book-shop@1x.png';
 
 import Book_api from './js/APIs/book-api';
 const book = new Book_api();
@@ -35,14 +39,14 @@ function createShoplistCard(data) {
         title,
         buy_links,
       }) => `
-  <li class="card-item js-card" data-id="${_id}">
+      <li class="card-item js-card" data-id="${_id}">
       <img class="card-img" src="${
-        book_image ? book_image : './img/icons.svg#icon-cork-book'
-      }" alt="Book's image" width="100"  height="142"/>
+        book_image ? book_image : `${iconsSvg}#icon-cork-book`
+      }" alt="Book's image" width="100" height="142"/>
     <div class="card-content">
         <h2 class="card-title">${title}</h2>
         <p class="card-genre">${list_name}</p>
-        <p class="card-description">${description}Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit voluptatem autem reiciendis nihil consequuntur? Similique impedit temporibus quod vel dignissimos.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit voluptatem autem reiciendis nihil consequuntur? Similique impedit temporibus quod vel dignissimos.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit voluptatem autem reiciendis nihil consequuntur? Similique impedit temporibus quod vel dignissimos.</p>
+        <p class="card-description">${description ? description : 'N/A'}</p>
       
       <div class="card-footer">
         <p class="card-author">${author}</p>
@@ -51,90 +55,43 @@ function createShoplistCard(data) {
             <a href="${
               buy_links[0].url
             }" target="_blank" rel="noopener nofollow">
-            <picture>
-            <source
-              srcset="
-                ./img/internet-shops/amazon@1x.avif 1x,
-                ./img/internet-shops/amazon@2x.avif 2x
-              "
-              type="image/avif"
-            />
-            <source
-              srcset="
-                ./img/internet-shops/amazon@1x.png 1x,
-                ./img/internet-shops/amazon@2x.png 2x
-              "
-              type="image/png"
-            />
-            <img class="shop-item-amason"
-              src="./img/internet-shops/amazon@1x.png"
-              alt="Amazon"
-              width="32"
-              height="11"
-            />
-          </picture>
+            <img class="amazon-img"
+                  src="${amazonIcon}"
+                  alt="Amazon"
+                  width="32"
+                  height="11"
+                />
             </a>
           </li>
           <li class="shop-item-apple">
             <a href="${
               buy_links[1].url
             }" target="_blank" rel="noopener nofollow">
-            <source
-            srcset="
-              ./img/internet-shops/book@1x.avif 1x,
-              ./img/internet-shops/book@2x.avif 2x
-            "
-            type="image/avif"
-          />
-          <source
-            srcset="
-              ./img/internet-shops/book@1x.png 1x,
-              ./img/internet-shops/book@2x.png 2x
-            "
-            type="image/png"
-          />
-          <img class="shop-item-apple"
-            src="./img/internet-shops/book@1x.png"
-            alt="Apple Book"
-            width="16"
-            height="16"
-          />
-        </picture>
+            <img class="apple-img"
+                  src="${appleIcon}"
+                  alt="Apple Book"
+                  width="16"
+                  height="16"
+                />
             </a>
           </li>
           <li class="shop-item-bookshop">
             <a href="${
               buy_links[4].url
             }" target="_blank" rel="noopener nofollow">
-            <picture>
-            <source
-              srcset="
-                ./img/internet-shops/book-shop@1x.avif 1x,
-                ./img/internet-shops/book-shop@2x.avif 2x
-              "
-              type="image/avif"
-            />
-            <source
-              srcset="
-                ./img/internet-shops/book-shop@1x.png 1x,
-                ./img/internet-shops/book-shop@2x.png 2x
-              "
-              type="image/png"
-            />
-            <img 
-              src="./img/internet-shops/book-shop@1x.png"
-              alt="Bookshop"
-              width="16"
-              height="16" class="shop-item-bookshop"
-            />
-          </picture>
+            <img class="bookshop-img"
+                  src="${bookshopIcon}"
+                  alt="Bookshop"
+                  width="16"
+                  height="16"
+                />
             </a>
           </li>
         </ul>
       </div>
       <button class="card-delete-btn" type="button">
         <svg class="delete-icon" width="28" height="28">
-          <use href="./img/icons.svg#icon-trash"></use>
+          <use href="${iconsSvg}#icon-trash"></use>
         </svg>
       </button>
     </div>
