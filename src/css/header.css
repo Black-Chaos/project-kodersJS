@@ -34,7 +34,7 @@
     text-transform: uppercase;
 }
 
-@media screen and (min-width:375px) {
+@media screen and (min-width:768px) {
     .site-nav {
         display: flex;
         justify-content: space-between;
@@ -66,9 +66,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--accent-color);
     border-radius: 25px;
     padding: 8px 16px;
+}
+.header-shop-list .header-shop-list-link, .header-home .header-home-link {
+    background-color: var(--accent-color);
 }
 
 .icon-log-in-out-arrow-right {
@@ -82,13 +84,13 @@
     line-height: 0;
 }
 
-@media screen and (min-width:375px) {
+@media screen and (min-width:768px) {
     .mobile-menu-open {
         display: none;
     }
 }
 
-@media screen and (max-width:375px) {
+@media screen and (max-width:768px) {
     .list-profile {
         display: none;
     }

@@ -51,6 +51,8 @@ body {
 
 header {
     height: 64px;
+    display: flex;
+    align-items: center;
 }
 
 @media only screen and (min-width: 768px) {
