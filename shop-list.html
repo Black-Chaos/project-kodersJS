@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/project-kodersJS/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    
+    <script type="module" crossorigin src="/project-kodersJS/assets/shop-list-fff0ebb6.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-kodersJS/assets/funds-8dc2fc24.js">
+    <link rel="stylesheet" href="/project-kodersJS/assets/shop-list-b896f3f8.css">
+  </head>
+  <body>
+    <header class="shop-list-header">
+      <div class="header-container">
+    <a href="./index.html" class="header-logo-link"
+      ><svg class="header-logo">
+         <use href="/project-kodersJS/assets/icons-7fa5c24b.svg#icon-logo"></use></svg>Bookshelf</a
+    >
+    <nav class="navigation">
+      <ul class="site-nav">
+        <li class="site-nav__item index-link">
+          <a href="./index.html" class="site-nav__link_active">Home</a>
+        </li>
+        <li class="site-nav__item shop-page-link">
+          <a href="./shop-list.html" class="site-nav__link"> Shopping list<svg class="site-nav__logo">   
+            <use href="/project-kodersJS/assets/icons-7fa5c24b.svg#icon-basket"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <label class="toggle-theme common-toggle">
+      <input type="checkbox" />
+      <span class="check"></span>
+    </label>
+    <button
+      class="sign-up-button"
+      type="button"
+      data-modal-open
+      aria-label="sign in"
+    >
+      <span class="sign-up-button_text">Sign up</span>
+      <svg class="sign-up-button_icon" width="20" height="20">
+        <use href="./images/icons.svg#icon-log-in-out-arrow-right"></use>
+      </svg>
+    </button>
+    <button type="button" class="burger-menu">
+      <svg class="burger-menu__icon">
+        <use href="/project-kodersJS/assets/icons-7fa5c24b.svg#icon-burger-menu"></use>
+      </svg>
+    </button>
+    <ul class="user-bar js-user-bar visually-hidden">
+      <li class="user-bar-item">
+        <button
+          class="user-bar-button js-user-bar-button"
+          type="button"
+          aria-label="user bar button"
+        >
+          <svg class="user-bar-button-icon" width="37" height="37">
+            <use href="/project-kodersJS/assets/icons-7fa5c24b.svg#icon-logo"></use>icon-unknown
+          </svg>
+          <span class="user-bar-button-text"></span>
+          <svg class="user-bar-button-arrow-icon" width="23" height="26">
+                <use href="/project-kodersJS/assets/icons-7fa5c24b.svg#icon-logined-caret-down"></use>
+          </svg>
+        </button>
+        <ul class="dropdown">
+          <li class="dropdown-list-item">
+            <button
+              class="log-out-button js-log-out-button"
+              type="button"
+              aria-label="Log out"
+            >
+              <span class="log-out-button-text">Log out</span>
+              <svg class="log-out-button-icon" width="20" height="20">
+                <use href="/project-kodersJS/assets/icons-7fa5c24b.svg#icon-logined-caret-down"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="mobile-menu-container">
+    <div class="burger-container">
+      <div class="mobile-menu__header">
+        <a href="/src/index.html" class="header-logo-link"
+          ><svg class="header-logo">
+            <use href="./images/header-icons.svg#icon-logo"></use></svg
+          >Bookshelf</a
+        >
+        <label class="toggle-theme common-toggle">
+          <input type="checkbox" />
+          <span class="check"></span>
+        </label>
+        <button type="button" class="mobile-menu__button">
+          <svg class="mobile-menu__icon">
+            <use href="./images/header-icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+      <button
+        class="sign-up-button-burger"
+        type="button"
+        data-modal-open
+        aria-label="sign in"
+      >
+        <span class="sign-up-button_text">Sign up</span>
+        <svg class="sign-up-button_icon" width="20" height="20">
+          <use href="./images/icons.svg#golder-arrow-right"></use>
+        </svg>
+      </button>
+      <nav class="navigation-burger">
+        <ul class="site-nav-burger">
+          <li class="site-nav__item_active">
+            <a href="/src/index.html" class="site-nav__link_active">HOME</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="./shopping-list.html" class="site-nav__link"
+              >SHOPPING LIST<svg class="site-nav__logo">
+                <use href="./images/header-icons.svg#icon-uil_cart"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button
+        class="log-out-button"
+        type="button"
+        data-modal-open
+        aria-label="sign in">
+        <span class="log-out-button_text">Log out</span>
+        <svg class="log-out-button_icon" width="20" height="20">
+          <use href="./images/icons.svg#golder-arrow-right"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+    </header>
+    <main>
+      <section class="shop-list-section">
+        <div class="container">
+          <div class="list">
+            <div class="support-wrapper">
+  <div class="support-title">
+    <span class="support-paragraph">Support Ukraine</span>
+    <svg class="ukraine-emblem" width="20" height="32">
+      <use href="/project-kodersJS/assets/icons-7fa5c24b.svg#icon-support-title-symbol"></use>
+    </svg>
+  </div>
+  <div class="funds-container">
+    <ul class="support-funds-list"></ul>
+  </div>
+</div>
+
+          </div>
+          
+            <div class="shopping-list">
+              <h1 class="shop-list-title">
+                Shopping <span class="shop-list-span">List</span>
+              </h1>
+              <div class="shop-list-empty is-hidden">
+                <p class="shop-list-empty-message">
+                  This page is empty, add some books and proceed to order.
+                </p>
+                <picture class="shop-list-empty-img">
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="/project-kodersJS/assets/empty-basket_desktop_tab@1x-d2c80fae.avif 1x, /project-kodersJS/assets/empty-basket_desktop_tab@2x-42a793c5.avif 2x"
+                    type="image/avif"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="/project-kodersJS/assets/empty-basket_desktop_tab@1x-870145f4.png 1x, /project-kodersJS/assets/empty-basket_desktop_tab@2x-39479a29.png 2x"
+                    type="image/png"
+                  />
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="/project-kodersJS/assets/empty-basket_mob@1x-103e3757.avif 1x, /project-kodersJS/assets/empty-basket_mob@2x-31747413.avif 2x"
+                    type="image/avif"
+                  />
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="/project-kodersJS/assets/empty-basket_mob@1x-0ff95516.png 1x, /project-kodersJS/assets/empty-basket_mob@2x-10c79011.png 2x"
+                    type="image/png"
+                  />
+                  <img class="shop-list-empty-img"
+                    src="/project-kodersJS/assets/empty-basket_mob@1x-0ff95516.png"
+                    alt="Books image"
+                    width="265"
+                    height="198"
+                  />
+                </picture>
+              </div>
+              <ul class="shop-list card-list shop-list-js"></ul>
+              <div id="pagination" class="tui-pagination"></div>
+            </div>
+          
+        </div>
+      </section>
+    </main>
+    
+    
+  </body>
+</html>
