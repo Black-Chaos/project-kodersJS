@@ -5,17 +5,18 @@ import iconsSvg from './img/icons.svg';
 import amazonIcon from './img/internet-shops/amazon@1x.png';
 import appleIcon from './img//internet-shops/book@1x.png';
 import bookshopIcon from './img/internet-shops/book-shop@1x.png';
+import {createPage} from './js/pagination'
 
-const cardList = document.querySelector('.shop-list-js');
+// const cardList = document.querySelector('.shop-list-js');
 createShoppingList();
 function createShoppingList() {
-  const isHidden = document.querySelector('.is-hidden');
+  const isHidden = document.querySelector('.shop-list-empty');
   const booksData = JSON.parse(localStorage.getItem('shoppingList'));
-  if (booksData.length === 0 || !booksData) {
+  if (!booksData || booksData.length === 0) {
     isHidden.classList.remove('is-hidden');
   } else {
-    const markup = createShoplistCard(booksData);
-    cardList.innerHTML = markup;
+    // const markup = createShoplistCard(booksData);
+    // cardList.innerHTML = markup;
   }
 }
 function createShoplistCard(data) {
@@ -88,22 +89,26 @@ function createShoplistCard(data) {
     )
     .join('');
 }
-const deleteBtn = document.querySelectorAll('.card-delete-btn');
-deleteBtn.forEach(button => {
-  button.addEventListener('click', onDeleteCard);
-});
-function onDeleteCard(event) {
-  const cardItem = event.target.closest('.js-card');
-  if (cardItem) {
-    const cardId = cardItem.getAttribute('data-id');
-    cardItem.remove();
-    const booksData = JSON.parse(localStorage.getItem('LOCAL_KEY'));
-    if (booksData) {
-      const newBooksData = booksData.filter(book => book._id !== cardId);
-      localStorage.setItem('LOCAL_KEY', JSON.stringify(newBooksData));
-      if (!newBooksData.length) {
-        const isHidden = document.querySelector('.is-hidden');
-        isHidden.classList.remove('is-hidden');
+export function deleteElement() {
+  const deleteBtn = document.querySelectorAll('.card-delete-btn');
+  deleteBtn.forEach(button => {
+    button.addEventListener('click', onDeleteCard);
+  });
+  function onDeleteCard(event) {
+    const cardItem = event.target.closest('.js-card');
+    if (cardItem) {
+      const cardId = cardItem.getAttribute('data-id');
+      cardItem.remove();
+      const booksData = JSON.parse(localStorage.getItem('shoppingList'));
+      if (booksData) {
+        const newBooksData = booksData.filter(book => book._id !== cardId);
+        localStorage.setItem('shoppingList', JSON.stringify(newBooksData));
+        // console.log('click');
+        createPage();
+        if (!newBooksData.length) {
+          const isHidden = document.querySelector('.is-hidden');
+          isHidden.classList.remove('is-hidden');
+        }
       }
     }
   }
