@@ -3,16 +3,16 @@
 
 }
 
-.category-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    flex-direction: column;
-}
 
 .wrapper-for-genre {
     display: inline-block;
+    margin-bottom: 40px;
 
+
+}
+
+.wrapper {
+    margin-bottom: 40px;
 }
 
 .main-title,
@@ -21,6 +21,7 @@
     font-weight: 700;
     line-height: 1.18;
     letter-spacing: -1.28px;
+    margin-bottom: 40px;
 }
 
 .main-title {
@@ -85,6 +86,7 @@
 
 .button {
     color: var(--text-color);
+    background-color: transparent;
     font-weight: 700;
     letter-spacing: -0.14px;
     text-transform: uppercase;
@@ -116,6 +118,10 @@
     .img {
         width: 218px;
         height: 316px;
+    }
+
+    .wrapper {
+        margin-bottom: unset;
     }
 
     .book-title,
