@@ -103,7 +103,6 @@ export function deleteElement() {
       if (booksData) {
         const newBooksData = booksData.filter(book => book._id !== cardId);
         localStorage.setItem('shoppingList', JSON.stringify(newBooksData));
-        // console.log('click');
         createPage();
         if (!newBooksData.length) {
           const isHidden = document.querySelector('.is-hidden');

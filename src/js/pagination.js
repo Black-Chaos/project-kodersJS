@@ -29,7 +29,6 @@ function createPage() {
 createPage();
 function renderGalleryItems(page, itemsPerPage) {
   const galleryItems = JSON.parse(localStorage.getItem('shoppingList'));
-  console.log(galleryItems.length);
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const itemsToRender = galleryItems.slice(startIndex, endIndex);
