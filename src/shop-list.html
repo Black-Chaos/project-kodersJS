@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/shop-list.css" />
   </head>
   <body>
-    <header class="shop-list">
+    <header class="shop-list-header">
       <load src="partials/header.html" />
     </header>
     <main>
@@ -17,7 +17,7 @@
           <div class="list">
             <load src="partials/funds.html" />
           </div>
-          <div class=" shop-list-container container">
+          
             <div class="shopping-list">
               <h1 class="shop-list-title">
                 Shopping <span class="shop-list-span">List</span>
@@ -67,13 +67,17 @@
                   />
                 </picture>
               </div>
-              <ul class="shop-list shop-list-js"></ul>
+              <ul class="shop-list card-list shop-list-js"></ul>
               <div id="pagination" class="tui-pagination"></div>
             </div>
-          </div>
+          
         </div>
       </section>
     </main>
+    
+    <div class="start-backdrop is-hidden">
+      <load src="partials/start.html" />
+    </div>
     <script type="module" src="./shop-list.js"></script>
     <script type="module" src="./js/pagination.js"></script>
   </body>

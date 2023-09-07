@@ -108,13 +108,16 @@ function createBook(currentBook) {
             }</p>
             <ul class="list-shops">
                 <li class="trading-platform amazon-platform">
+
                     <a href="${
                       currentBook.buy_links[0].url
                     }" target="_blank" rel="noopener nofollow">
                         <img  src="${amazonIcon}" alt="Amazon logo" width="62" height="19" />
+
                     </a>
                 </li> 
                 <li class="trading-platform">
+
                     <a href="${currentBook.buy_links[1].url}" target="_blank" rel="noopener nofollow">
                         <img  src="${appleIcon}" alt="Apple books logo" width="33" height="32" />
                     </a>
@@ -122,9 +125,12 @@ function createBook(currentBook) {
                 <li class="trading-platform">
                     <a href="${currentBook.buy_links[4].url}" target="_blank" rel="noopener nofollow">
                         <img  src="${bookshopIcon}" alt="Book shop logo" width="38" height="36" />
+
                     </a>
                 </li>
             </ul>
         </div> `;
+
 };
 export { markUpBook };
+

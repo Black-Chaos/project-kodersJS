@@ -1,8 +1,9 @@
 @import url('./reset.css');
 @import url('./base.css');
+@import url('./pagination.css');
 @import url('./header.css');
+@import url('./start.css');
 @import url('./funds.css');
-
 
 /**
     |============================
@@ -27,7 +28,7 @@
 
 .shop-list-title {
   /* margin-left: 20px; */
-  margin-top: 40px;
+  /* margin-top: 40px; */
   font-size: 32px;
   line-height: 1.19;
   letter-spacing: -1.28px;
@@ -78,36 +79,45 @@
     | SHOPPING-LIST FULL
     |============================
   */
-
 .is-hidden {
   display: none;
 }
 
-.shop-list-container {
-  display: flex;
-  justify-content: center;
-}
-.shop-list {
-  margin-top: 40px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  width: 335px;
+/* @media screen and (max-width: 1439px) {
+  .support-wrapper {
+    display: none;
+  }
 
+  .shop-list-section .container {
+    gap: 0px;
+  }
+} */
+/* Що тут роблять стилі які відносяться до іншої частини? */
+
+.shopping-list {
+  /* margin-top: 40px; */
+  width: 335px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .shop-list {
+  .shopping-list {
     width: 704px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .shop-list {
+  .shopping-list {
     width: 996px;
   }
+}
+
+.card-list {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }
 
 .card-item {

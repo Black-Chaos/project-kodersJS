@@ -30,6 +30,7 @@ a {
 
 button {
   cursor: pointer;
+  color: currentColor;
 }
 
 input,

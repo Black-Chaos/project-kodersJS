@@ -1,26 +1,22 @@
 import './js/header';
+import './js/start';
 import './js/funds';
 import iconsSvg from './img/icons.svg';
 import amazonIcon from './img/internet-shops/amazon@1x.png';
 import appleIcon from './img//internet-shops/book@1x.png';
 import bookshopIcon from './img/internet-shops/book-shop@1x.png';
-// import Book_api from './js/APIs/book-api';
-// const book = new Book_api();
-// book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
-//   const booksJson = JSON.stringify(books);
-//   localStorage.setItem('LOCAL_KEY', booksJson);
-// });
-const LOCAL_KEY = 'shoppingList';
-const cardList = document.querySelector('.shop-list-js');
+import {createPage} from './js/pagination'
+
+// const cardList = document.querySelector('.shop-list-js');
 createShoppingList();
 function createShoppingList() {
-  const isHidden = document.querySelector('.is-hidden');
+  const isHidden = document.querySelector('.shop-list-empty');
   const booksData = JSON.parse(localStorage.getItem('shoppingList'));
-  if (booksData.length === 0 || !booksData) {
+  if (!booksData || booksData.length === 0) {
     isHidden.classList.remove('is-hidden');
   } else {
-    const markup = createShoplistCard(booksData);
-    cardList.innerHTML = markup;
+    // const markup = createShoplistCard(booksData);
+    // cardList.innerHTML = markup;
   }
 }
 function createShoplistCard(data) {
@@ -36,16 +32,14 @@ function createShoplistCard(data) {
         buy_links,
       }) => `
       <li class="card-item js-card" data-id="${_id}">
-      <img class="card-img" src="${
-        book_image ? book_image : `${iconsSvg}#icon-cork-book`
-      }" alt="Book's image" width="100" height="142"/>
+      <img class="card-img" src="${book_image}" onerror="this.src='${iconsSvg}#icon-cork-book'" alt="Book's image" width="100" height="142"/>
     <div class="card-content">
         <h2 class="card-title">${title}</h2>
         <p class="card-genre">${list_name}</p>
         <p class="card-description">${description ? description : 'N/A'}</p>
       <div class="card-footer">
         <p class="card-author">${author}</p>
-        <ul class="card-shops list">
+        <ul class="card-shops">
           <li class="shop-item">
             <a href="${
               buy_links[0].url
@@ -95,22 +89,26 @@ function createShoplistCard(data) {
     )
     .join('');
 }
-const deleteBtn = document.querySelectorAll('.card-delete-btn');
-deleteBtn.forEach(button => {
-  button.addEventListener('click', onDeleteCard);
-});
-function onDeleteCard(event) {
-  const cardItem = event.target.closest('.js-card');
-  if (cardItem) {
-    const cardId = cardItem.getAttribute('data-id');
-    cardItem.remove();
-    const booksData = JSON.parse(localStorage.getItem('LOCAL_KEY'));
-    if (booksData) {
-      const newBooksData = booksData.filter(book => book._id !== cardId);
-      localStorage.setItem('LOCAL_KEY', JSON.stringify(newBooksData));
-      if (!newBooksData.length) {
-        const isHidden = document.querySelector('.is-hidden');
-        isHidden.classList.remove('is-hidden');
+export function deleteElement() {
+  const deleteBtn = document.querySelectorAll('.card-delete-btn');
+  deleteBtn.forEach(button => {
+    button.addEventListener('click', onDeleteCard);
+  });
+  function onDeleteCard(event) {
+    const cardItem = event.target.closest('.js-card');
+    if (cardItem) {
+      const cardId = cardItem.getAttribute('data-id');
+      cardItem.remove();
+      const booksData = JSON.parse(localStorage.getItem('shoppingList'));
+      if (booksData) {
+        const newBooksData = booksData.filter(book => book._id !== cardId);
+        localStorage.setItem('shoppingList', JSON.stringify(newBooksData));
+        // console.log('click');
+        createPage();
+        if (!newBooksData.length) {
+          const isHidden = document.querySelector('.is-hidden');
+          isHidden.classList.remove('is-hidden');
+        }
       }
     }
   }
