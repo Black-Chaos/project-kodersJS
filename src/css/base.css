@@ -94,13 +94,10 @@ header {
 @media only screen and (max-width: 1439px) {
   .library .container {
     flex-direction: column;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1439px) {
-    .container {
     gap: 100px;
   }
 }
+
 
 .popup-backdrop {
     background-color: var(--popup-backdrop);

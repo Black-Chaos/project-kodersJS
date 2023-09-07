@@ -41,9 +41,7 @@ function createShoplistCard(data) {
         buy_links,
       }) => `
       <li class="card-item js-card" data-id="${_id}">
-      <img class="card-img" src="${
-        book_image ? book_image : `${iconsSvg}#icon-cork-book`
-      }" alt="Book's image" width="100" height="142"/>
+      <img class="card-img" src="${book_image}" onerror="this.src='${iconsSvg}#icon-cork-book'" alt="Book's image" width="100" height="142"/>
     <div class="card-content">
         <h2 class="card-title">${title}</h2>
         <p class="card-genre">${list_name}</p>
