@@ -181,18 +181,27 @@
     }
 }
 
+
 .trading-platform {
     filter: var(--popup-filter-shop); 
 }
 .trading-platform:hover {
     filter: var(--popup-filter-shop-hover);
 }
+@media (prefers-color-theme: dark) {
+    .trading-platform:not(.amazon-platform) {
+        filter: var(--popup-filter-shop);
+    }
 
-.amazon-platform {
-    filter: var(--popup-filter-shop-amazon);
+    .amazon-platform {
+        filter: var(--popup-filter-shop-amazon);
+    }
 }
-
-
+@media (prefers-color-theme: dark) {
+    .trading-platform:hover {
+        filter: var(--popup-filter-shop-hover);
+    }
+}
 .add-btn {
     display: flex;
     width: auto;
