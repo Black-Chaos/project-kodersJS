@@ -36,6 +36,8 @@
     color: var(--second-text-card);
     letter-spacing: 0.42px;
     font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
     text-transform: uppercase;
     margin-bottom: 18px;
 }
@@ -88,6 +90,8 @@
     color: var(--text-color);
     background-color: transparent;
     font-weight: 700;
+    font-size: 14px;
+        line-height: 1.29;
     letter-spacing: -0.14px;
     text-transform: uppercase;
     border-radius: 40px;
