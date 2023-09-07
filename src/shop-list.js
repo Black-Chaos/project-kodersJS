@@ -7,7 +7,7 @@ import bookshopIcon from './img/internet-shops/book-shop@1x.png';
 
 import Book_api from './js/APIs/book-api';
 const book = new Book_api();
-book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
+book.getBookByCategory('Childrens Middle Grade Hardcover').then(books => {
   const booksJson = JSON.stringify(books);
   localStorage.setItem('LOCAL_KEY', booksJson);
 });
@@ -49,7 +49,7 @@ function createShoplistCard(data) {
       
       <div class="card-footer">
         <p class="card-author">${author}</p>
-        <ul class="card-shops list">
+        <ul class="card-shops">
           <li class="shop-item">
             <a href="${
               buy_links[0].url
