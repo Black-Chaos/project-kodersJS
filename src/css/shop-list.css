@@ -81,7 +81,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1439px) {
+/* @media screen and (max-width: 1439px) {
   .support-wrapper {
     display: none;
   }
@@ -89,7 +89,8 @@
   .shop-list-section .container {
     gap: 0px;
   }
-}
+} */
+/* Що тут роблять стилі які відносяться до іншої частини? */
 
 .shopping-list {
   /* margin-top: 40px; */

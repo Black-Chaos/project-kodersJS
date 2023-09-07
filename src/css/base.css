@@ -102,3 +102,9 @@ header {
 .popup-backdrop {
     background-color: var(--popup-backdrop);
 }
+
+@media only screen and (max-width: 1439px) {
+    .shop-list-section .list {
+        display: none;
+    }
+}
