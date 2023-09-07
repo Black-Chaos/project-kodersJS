@@ -1,17 +1,10 @@
 import './js/header';
+import './js/start';
 import './js/funds';
 import iconsSvg from './img/icons.svg';
 import amazonIcon from './img/internet-shops/amazon@1x.png';
 import appleIcon from './img//internet-shops/book@1x.png';
 import bookshopIcon from './img/internet-shops/book-shop@1x.png';
-
-// import Book_api from './js/APIs/book-api';
-// const book = new Book_api();
-// book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
-//   const booksJson = JSON.stringify(books);
-//   localStorage.setItem('LOCAL_KEY', booksJson);
-// });
-const LOCAL_KEY = 'shoppingList';
 
 const cardList = document.querySelector('.shop-list-js');
 createShoppingList();
