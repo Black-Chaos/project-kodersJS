@@ -37,7 +37,7 @@ function onEscClose(e) {
   }
 }
 
-export function openStarModal() {
+export default function openStarModal() {
   refs.startBackdrop.classList.remove('is-hidden');
   document.body.classList.remove('scroll-lock');
 }

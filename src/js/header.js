@@ -1,4 +1,7 @@
+import openStarModal from './start.js';
 const checkbox = document.querySelector('input[type="checkbox"]');
+// const headMobileBtn = document.querySelector('burger-menu');
+const headBtn = document.querySelector('.sign-up-button');
 
 // перевіряємо, чи була вже встановлена попередня тема
 const savedTheme = localStorage.getItem('theme');
@@ -8,6 +11,7 @@ if (savedTheme) {
 }
 
 checkbox.addEventListener('change', changeTheme);
+headBtn.addEventListener('click', openStarModal);
 
 // функція змін теми
 function changeTheme() {
