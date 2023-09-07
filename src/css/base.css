@@ -51,12 +51,17 @@ body {
 
 header {
     height: 64px;
+    margin-bottom: 40px;
 }
 
 @media only screen and (min-width: 768px) {
     header {
         height: 72px;
     }
+}
+
+svg {
+    color: currentColor;
 }
 
 .scroll-lock {
@@ -101,4 +106,10 @@ header {
 
 .popup-backdrop {
     background-color: var(--popup-backdrop);
+}
+
+@media only screen and (max-width: 1439px) {
+    .shop-list-section .list {
+        display: none;
+    }
 }
