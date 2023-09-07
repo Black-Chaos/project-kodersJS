@@ -64,17 +64,14 @@
     padding: 8px 16px;
 }
 
-.site-nav__item_active {
+.header-home .index-link, .shop-list-header .shop-page-link {
     background-color: #eac645;
     border-radius: 36px;
     padding: 8px 16px;
 }
 
 .site-nav__link_active {
-    font-family: inherit;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 1.28;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     display: flex;
