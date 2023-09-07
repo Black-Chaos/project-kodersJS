@@ -33,7 +33,7 @@ function onEscClose(e) {
   } else {
     refs.startBackdrop.classList.add('is-hidden');
     document.body.classList.remove('scroll-lock');
-    window.removeEventListener();
+    // window.removeEventListener();
   }
 }
 
