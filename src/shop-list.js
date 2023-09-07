@@ -4,6 +4,7 @@ import iconsSvg from './img/icons.svg';
 import amazonIcon from './img/internet-shops/amazon@1x.png';
 import appleIcon from './img//internet-shops/book@1x.png';
 import bookshopIcon from './img/internet-shops/book-shop@1x.png';
+
 // import Book_api from './js/APIs/book-api';
 // const book = new Book_api();
 // book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
@@ -11,6 +12,7 @@ import bookshopIcon from './img/internet-shops/book-shop@1x.png';
 //   localStorage.setItem('LOCAL_KEY', booksJson);
 // });
 const LOCAL_KEY = 'shoppingList';
+
 const cardList = document.querySelector('.shop-list-js');
 createShoppingList();
 function createShoppingList() {
@@ -36,16 +38,14 @@ function createShoplistCard(data) {
         buy_links,
       }) => `
       <li class="card-item js-card" data-id="${_id}">
-      <img class="card-img" src="${
-        book_image ? book_image : `${iconsSvg}#icon-cork-book`
-      }" alt="Book's image" width="100" height="142"/>
+      <img class="card-img" src="${book_image}" onerror="this.src='${iconsSvg}#icon-cork-book'" alt="Book's image" width="100" height="142"/>
     <div class="card-content">
         <h2 class="card-title">${title}</h2>
         <p class="card-genre">${list_name}</p>
         <p class="card-description">${description ? description : 'N/A'}</p>
       <div class="card-footer">
         <p class="card-author">${author}</p>
-        <ul class="card-shops list">
+        <ul class="card-shops">
           <li class="shop-item">
             <a href="${
               buy_links[0].url

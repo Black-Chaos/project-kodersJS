@@ -51,12 +51,17 @@ body {
 
 header {
     height: 64px;
+    margin-bottom: 40px;
 }
 
 @media only screen and (min-width: 768px) {
     header {
         height: 72px;
     }
+}
+
+svg {
+    color: currentColor;
 }
 
 .scroll-lock {
@@ -94,10 +99,6 @@ header {
 @media only screen and (max-width: 1439px) {
   .library .container {
     flex-direction: column;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1439px) {
-    .container {
     gap: 100px;
   }
 }
