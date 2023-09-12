@@ -1,6 +1,9 @@
 import Pagination from 'tui-pagination';
 import { createShoplistCard, deleteElement } from '../shop-list';
+
+
 const ulEl = document.querySelector('.shop-list-js');
+
 function createPage() {
   const galleryItems = JSON.parse(localStorage.getItem('shoppingList'));
   const container = document.getElementById('pagination');
@@ -24,9 +27,28 @@ function createPage() {
       renderGalleryItems(1,itemsPerPage);
     }
   }
-  deleteElement()
+  deleteElement();
 }
+
 createPage();
+
+function hideOrShowPagination() {
+  const galleryItems = JSON.parse(localStorage.getItem('shoppingList'));
+  const container = document.getElementById('pagination');
+  if (!container.classList.contains('hide-pagination')) {
+    container.classList.add('hide-pagination');
+  }
+  
+  if (galleryItems !== null) {
+    if (galleryItems.length > 3) {
+      container.classList.remove('hide-pagination');
+    }
+  }
+}
+
+
+
+
 function renderGalleryItems(page, itemsPerPage) {
   const galleryItems = JSON.parse(localStorage.getItem('shoppingList'));
   const startIndex = (page - 1) * itemsPerPage;
@@ -35,4 +57,5 @@ function renderGalleryItems(page, itemsPerPage) {
   const newElImg = createShoplistCard(itemsToRender);
   ulEl.innerHTML = newElImg;
 }
-export { createPage };
+
+export { createPage,hideOrShowPagination};
