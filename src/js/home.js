@@ -1,14 +1,16 @@
-import { markUpBook } from './popup'
+import { markUpBook } from './popup';
 import Book_api from './APIs/book-api';
 import iconCorkBook from '../img/icons.svg';
 // import { openModalPopUp } from './popup';
 
 const book = new Book_api();
 const categoryDivWraper = document.querySelector('.category-wrapper');
+const loader = document.querySelector('.loader');
 
 getAllCategoriesBookTopList();
 
 export function getAllCategoriesBookTopList() {
+  showLoader();
   try {
     book.getTopBooks().then(resp => {
       categoryDivWraper.innerHTML = '';
@@ -39,6 +41,7 @@ function renderMarkupForTopCategories(resp) {
       renderBlockForTopCategories(list_name, bookList);
     })
     .join('');
+  hideLoader();
 }
 
 function renderListOfTopCategories(books) {
@@ -108,6 +111,7 @@ function onLoadMore(e) {
 }
 
 function getBooksbyBtnMore(nameOfCategory, categoryList) {
+  showLoader();
   try {
     book.getBookByCategory(nameOfCategory).then(resp => {
       renderMarkupByBtnMore(resp, categoryList);
@@ -124,12 +128,14 @@ function renderMarkupByBtnMore(resp, categoryList) {
       categoryList.insertAdjacentHTML('beforeend', bookList);
     })
     .join('');
+  hideLoader();
 }
 
 // getBooksOfCategory('Advice How-To and Miscellaneous');
 // getBooksOfCategory('Hardcover Fiction');
 
 export function getBooksOfCategory(nameOfCategory) {
+  showLoader();
   try {
     book.getBookByCategory(nameOfCategory).then(resp => {
       // Для імітації порожного вмісту категорії
@@ -190,6 +196,8 @@ function renderBlockForCategories(bookList) {
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryUl);
 
+  hideLoader();
+
   const categoryList = document.querySelector('.category-list');
   categoryList.addEventListener('click', onClickOpenPopUp);
 }
@@ -227,16 +235,21 @@ function scrollFunction() {
 function topFunction() {
   window.scrollBy({
     top: 0,
-    behavior: 'smooth',
   });
 }
 
-
 const ulBooks = document.querySelector('.category-wrapper');
-ulBooks.addEventListener('click', (event) => {
+ulBooks.addEventListener('click', event => {
   if (event.target.closest('.link')) {
     const bookId = event.target.closest('.link').getAttribute('id');
     markUpBook(bookId);
-    
   }
 });
+
+function showLoader() {
+  loader.classList.remove('is-hidden');
+}
+
+function hideLoader() {
+  loader.classList.add('is-hidden');
+}
