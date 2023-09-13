@@ -5,7 +5,7 @@ import iconsSvg from './img/icons.svg';
 import amazonIcon from './img/internet-shops/amazon@1x.png';
 import appleIcon from './img//internet-shops/book@1x.png';
 import bookshopIcon from './img/internet-shops/book-shop@1x.png';
-import {createPage} from './js/pagination'
+import {createPage,hideOrShowPagination} from './js/pagination'
 
 // const cardList = document.querySelector('.shop-list-js');
 createShoppingList();
@@ -18,6 +18,7 @@ function createShoppingList() {
     // const markup = createShoplistCard(booksData);
     // cardList.innerHTML = markup;
   }
+  hideOrShowPagination();
 }
 function createShoplistCard(data) {
   return data
@@ -104,12 +105,14 @@ export function deleteElement() {
         const newBooksData = booksData.filter(book => book._id !== cardId);
         localStorage.setItem('shoppingList', JSON.stringify(newBooksData));
         createPage();
+
         if (!newBooksData.length) {
           const isHidden = document.querySelector('.is-hidden');
           isHidden.classList.remove('is-hidden');
         }
       }
     }
+    hideOrShowPagination();
   }
 }
 export { createShoplistCard };
