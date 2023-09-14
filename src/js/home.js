@@ -1,3 +1,4 @@
+import { markUpBook } from './popup'
 import Book_api from './APIs/book-api';
 import iconCorkBook from '../img/icons.svg';
 // import { openModalPopUp } from './popup';
@@ -224,6 +225,18 @@ function scrollFunction() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  window.scrollBy({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
+
+
+const ulBooks = document.querySelector('.category-wrapper');
+ulBooks.addEventListener('click', (event) => {
+  if (event.target.closest('.link')) {
+    const bookId = event.target.closest('.link').getAttribute('id');
+    markUpBook(bookId);
+    
+  }
+});

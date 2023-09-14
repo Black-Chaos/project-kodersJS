@@ -1,32 +1,24 @@
 import './js/header';
+import './js/start';
 import './js/funds';
 import iconsSvg from './img/icons.svg';
 import amazonIcon from './img/internet-shops/amazon@1x.png';
 import appleIcon from './img//internet-shops/book@1x.png';
 import bookshopIcon from './img/internet-shops/book-shop@1x.png';
+import {createPage,hideOrShowPagination} from './js/pagination'
 
-import Book_api from './js/APIs/book-api';
-const book = new Book_api();
-book.getBookByCategory('Advice How-To and Miscellaneous').then(books => {
-  const booksJson = JSON.stringify(books);
-  localStorage.setItem('LOCAL_KEY', booksJson);
-});
-
-// const LOCAL_KEY = 'shoppingList';
-
-const cardList = document.querySelector('.shop-list-js');
-
+// const cardList = document.querySelector('.shop-list-js');
 createShoppingList();
-
 function createShoppingList() {
-  const isHidden = document.querySelector('.is-hidden');
-  const booksData = JSON.parse(localStorage.getItem('LOCAL_KEY'));
-  if (booksData.length === 0 || !booksData) {
+  const isHidden = document.querySelector('.shop-list-empty');
+  const booksData = JSON.parse(localStorage.getItem('shoppingList'));
+  if (!booksData || booksData.length === 0) {
     isHidden.classList.remove('is-hidden');
   } else {
-    const markup = createShoplistCard(booksData);
-    cardList.innerHTML = markup;
+    // const markup = createShoplistCard(booksData);
+    // cardList.innerHTML = markup;
   }
+  hideOrShowPagination();
 }
 function createShoplistCard(data) {
   return data
@@ -46,10 +38,9 @@ function createShoplistCard(data) {
         <h2 class="card-title">${title}</h2>
         <p class="card-genre">${list_name}</p>
         <p class="card-description">${description ? description : 'N/A'}</p>
-      
       <div class="card-footer">
         <p class="card-author">${author}</p>
-        <ul class="card-shops list">
+        <ul class="card-shops">
           <li class="shop-item">
             <a href="${
               buy_links[0].url
@@ -99,28 +90,29 @@ function createShoplistCard(data) {
     )
     .join('');
 }
+export function deleteElement() {
+  const deleteBtn = document.querySelectorAll('.card-delete-btn');
+  deleteBtn.forEach(button => {
+    button.addEventListener('click', onDeleteCard);
+  });
+  function onDeleteCard(event) {
+    const cardItem = event.target.closest('.js-card');
+    if (cardItem) {
+      const cardId = cardItem.getAttribute('data-id');
+      cardItem.remove();
+      const booksData = JSON.parse(localStorage.getItem('shoppingList'));
+      if (booksData) {
+        const newBooksData = booksData.filter(book => book._id !== cardId);
+        localStorage.setItem('shoppingList', JSON.stringify(newBooksData));
+        createPage();
 
-const deleteBtn = document.querySelectorAll('.card-delete-btn');
-
-deleteBtn.forEach(button => {
-  button.addEventListener('click', onDeleteCard);
-});
-
-function onDeleteCard(event) {
-  const cardItem = event.target.closest('.js-card');
-  if (cardItem) {
-    const cardId = cardItem.getAttribute('data-id');
-    cardItem.remove();
-    const booksData = JSON.parse(localStorage.getItem('LOCAL_KEY'));
-    if (booksData) {
-      const newBooksData = booksData.filter(book => book._id !== cardId);
-      localStorage.setItem('LOCAL_KEY', JSON.stringify(newBooksData));
-      if (!newBooksData.length) {
-        const isHidden = document.querySelector('.is-hidden');
-        isHidden.classList.remove('is-hidden');
+        if (!newBooksData.length) {
+          const isHidden = document.querySelector('.is-hidden');
+          isHidden.classList.remove('is-hidden');
+        }
       }
     }
+    hideOrShowPagination();
   }
 }
-
 export { createShoplistCard };

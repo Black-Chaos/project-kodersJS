@@ -2,10 +2,12 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: opacity 3000ms cubic-bezier(0.39, 0.575, 0.565, 1);
+    scale: 0.2;
+
 }
 
 .start-backdrop {
+    transform: scale(1);
     opacity: 1;
     position: fixed;
     top: 0;
@@ -32,12 +34,14 @@
     left: 50%;
     overflow: auto;
     transform: translate(-50%, -50%) scale(1);
-    transition: transform cubic-bezier(.17, .67, 1, .32);
+    transition: transform 250ms cubic-bezier(.17, .67, 1, .32);
     width: 335px;
     padding: 14px;
     border: 2px solid var(--start-modal-text-border);
     background-color: var(--start-modal-bg);
     border-radius: 18px;
+    transition: opacity 250ms cubic-bezier(0.39, 0.575, 0.565, 1), scale 250ms cubic-bezier(0.39, 0.575, 0.565, 1);
+
 }
 
 @media only screen and (min-width: 1440px) {
@@ -105,13 +109,14 @@
     padding: 16px 24px;
     border: 2px solid var(--start-modal-text-border);
     background-color: transparent;
+    outline: none;
     color: var(--start-modal-text-border);
     border-radius: 40px;
     font-size: 16px;
     font-weight: 700;
     line-height: 1.125;
     letter-spacing: -0.16px;
-    transform: outline-color 250ms linear, stroke 250ms linear;
+    transition: border-color 250ms linear, stroke 250ms linear;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -144,7 +149,7 @@
 }
 
 .start-input:focus {
-    outline-color: var(--brand-color);
+    border-color: var(--brand-color);
 }
 
 .start-input:focus+.input-icon {
@@ -186,7 +191,7 @@
     font-weight: 700;
     line-height: 1.125;
     letter-spacing: -0.16px;
-
+    transition: color 250ms linear, border 250ms linear;
 }
 
 @media only screen and (min-width: 1440px) {
