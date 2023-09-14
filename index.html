@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
     
-    <script type="module" crossorigin src="/project-kodersJS/assets/index-24159d11.js"></script>
+    <script type="module" crossorigin src="/project-kodersJS/assets/index-857b4bce.js"></script>
     <link rel="modulepreload" crossorigin href="/project-kodersJS/assets/funds-4a268d5f.js">
-    <link rel="stylesheet" href="/project-kodersJS/assets/index-62271c4e.css">
+    <link rel="stylesheet" href="/project-kodersJS/assets/index-b28e198d.css">
   </head>
   <body>
     <header class="header-home">
@@ -235,86 +235,43 @@
     </button> 
      
     <div class="content">
-        <!-- <img class="img bookim" src="" alt="Book Image" />
+        <!-- return `<img class="img bookim" src="${currentBook.book_image}" alt="${
+    currentBook.title
+  }" />
         <div class="text-content">
-            <h3 class = "book-tittle"></h3>
-            <p class = "book-authoor"></p>
-            <p class="book-descripption"></p>
+            <h3 class="book-tittle">${currentBook.title}</h3>
+            <p class="book-authoor">${currentBook.author}</p>
+            <p class="book-descripption">${
+              currentBook.description ? currentBook.description : 'N/A'
+            }</p>
             <ul class="list-shops">
                 <li class="trading-platform amazon-platform">
-                    <a class="link-shop" href="https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155" target="_blank">
-                        <picture>
-                            <source 
-                            srcset="./img/internet-shops/amazon@1x.avif 1x,
-                            ./img/internet-shops/amazon@2x.avif 2x" media="(min-width: 768px)" type="image/avif" />
-                            <source 
-                            srcset="./img/internet-shops/amazon@1x.png 1x,
-                            ./img/internet-shops/amazon@1x.png 2x" media="(min-width: 768px)" type="image/png" />
-                            <source 
-                            srcset="./img/internet-shops/amazon@1x.avif 1x,
-                            ./img/internet-shops/amazon@2x.avif 2x" type="image/avif" />
-                            <source 
-                            srcset="./img/internet-shops/amazon@1x.png 1x,
-                            ./img/internet-shops/amazon@1x.png 2x" type="image/png" />
-                            <img 
-                                src="./img/internet-shops/amazon@1x.avif" 
-                                alt="Amazon logo"
-                                width="62"
-                                height="19"
-                                loading="lazy" />
-                        </picture>
+
+                    <a href="${
+                      currentBook.buy_links[0].url
+                    }" target="_blank" rel="noopener nofollow">
+                        <img  src="${amazonIcon}" alt="Amazon logo" width="62" height="19" />
+
+                    </a>
+                </li> 
+                <li class="trading-platform">
+
+                    <a href="${
+                      currentBook.buy_links[1].url
+                    }" target="_blank" rel="noopener nofollow">
+                        <img  src="${appleIcon}" alt="Apple books logo" width="33" height="32" />
                     </a>
                 </li>
                 <li class="trading-platform">
-                    <a class="link-shop" href="https://www.apple.com/ua/apple-books/" target="_blank">
-                        <picture>
-                            <source 
-                            srcset="./img/internet-shops/book@1x.avif 1x,
-                            ./img/internet-shops/book@2x.avif 2x" media="(min-width: 768px)" type="image/avif" />
-                            <source 
-                            srcset="./img/internet-shops/book@1x.png 1x,
-                            ./img/internet-shops/book@2x.png 2x" media="(min-width: 768px)" type="image/png" />
-                            <source 
-                            srcset="./img/internet-shops/book@1x.avif 1x,
-                            ./img/internet-shops/book@2x.avif 2x" type="image/avif" />
-                            <source 
-                            srcset="./img/internet-shops/book@1x.png 1x,
-                            ./img/internet-shops/book@2x.png 2x" type="image/png" />
-                            <img 
-                                src="./img/internet-shops/book@1x.avif" 
-                                alt="Apple books logo"
-                                width="33"
-                                height="32"
-                                loading="lazy" />
-                        </picture>
-                    </a>
-                </li>
-                <li class="trading-platform">
-                    <a class="link-shop" href="./index.html" target="_blank">
-                        <picture>
-                            <source 
-                            srcset="./img/internet-shops/book-shop@1x.avif 1x,
-                            ./img/internet-shops/book-shop@2x.avif 2x" media="(min-width: 768px)" type="image/avif" />
-                            <source 
-                            srcset="./img/internet-shops/book-shop@1x.png 1x,
-                            ./img/internet-shops/book-shop@2x.png 2x" media="(min-width: 768px)" type="image/png" />
-                            <source 
-                            srcset="./img/internet-shops/book-shop@1x.avif 1x,
-                            ./img/internet-shops/book-shop@2x.avif 2x" type="image/avif" />
-                            <source 
-                            srcset="./img/internet-shops/book-shop@1x.png 1x,
-                            ./img/internet-shops/book-shop@2x.png 2x" type="image/png" />
-                            <img 
-                                src="./img/internet-shops/book-shop@1x.avif" 
-                                alt="Book shop logo"
-                                width="38"
-                                height="36"
-                                loading="lazy" />
-                        </picture>
+                    <a href="${
+                      currentBook.buy_links[4].url
+                    }" target="_blank" rel="noopener nofollow">
+                        <img  src="${bookshopIcon}" alt="Book shop logo" width="38" height="36" />
+
                     </a>
                 </li>
             </ul>
-        </div> -->
+        </div> `; -->
     </div>
     
     <button class="add-btn" type="submit">Add to shopping list</button>
