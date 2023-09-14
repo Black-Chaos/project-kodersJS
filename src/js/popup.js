@@ -14,7 +14,7 @@ const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
 function showBookDetails(book) {
   isBookInShoppingList = shoppingList.some(item => item._id === book._id);
   updateShoppingListButton();
-  console.log(book._id);
+  
 }
 // document.addEventListener('DOMContentLoaded', function () {
 const addToShoppingListButton = modal.querySelector('.add-btn');
@@ -53,9 +53,10 @@ addToShoppingListButton.addEventListener('click', function () {
 function closeModal() {
   document.body.classList.remove('scroll-lock');
   modal.classList.remove('activeModal');
-  popupBackdrop.classList.remove('activeModal');
+  popupBackdrop.classList.remove('activePopUp');
   document.removeEventListener('keydown', handleEscapeKey);
   closeBtn.removeEventListener('click', closeModal);
+  
 }
 function handleEscapeKey() {}
 closeBtn.addEventListener('click', e => {
@@ -87,7 +88,7 @@ function markUpBook(id) {
       const elTextContent = document.querySelector('.content');
       elTextContent.innerHTML = createBook(data);
       modal.classList.add('activeModal');
-      popupBackdrop.classList.add('activeModal');
+      popupBackdrop.classList.add('activePopUp');
       document.body.classList.add('scroll-lock');
       document.addEventListener('keydown', handleEscapeKey);
       closeBtn.addEventListener('click', closeModal);
@@ -118,12 +119,16 @@ function createBook(currentBook) {
                 </li> 
                 <li class="trading-platform">
 
-                    <a href="${currentBook.buy_links[1].url}" target="_blank" rel="noopener nofollow">
+                    <a href="${
+                      currentBook.buy_links[1].url
+                    }" target="_blank" rel="noopener nofollow">
                         <img  src="${appleIcon}" alt="Apple books logo" width="33" height="32" />
                     </a>
                 </li>
                 <li class="trading-platform">
-                    <a href="${currentBook.buy_links[4].url}" target="_blank" rel="noopener nofollow">
+                    <a href="${
+                      currentBook.buy_links[4].url
+                    }" target="_blank" rel="noopener nofollow">
                         <img  src="${bookshopIcon}" alt="Book shop logo" width="38" height="36" />
 
                     </a>
