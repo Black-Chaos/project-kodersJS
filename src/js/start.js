@@ -12,7 +12,7 @@ refs.form.addEventListener('submit', onFormSub);
 window.addEventListener(`keydown`, onEscClose);
 
 function onCloseBtn() {
-  refs.startBackdrop.classList.add('is-hidden');
+  refs.startBackdrop.classList.add('start-hidden');
   document.body.classList.remove('scroll-lock');
 }
 
@@ -24,20 +24,19 @@ function onFormSub(event) {
   inputData.password = password.value;
   localStorage.setItem(LOCAL_KEY, JSON.stringify(inputData));
   event.currentTarget.reset();
-  refs.startBackdrop.classList.add('is-hidden');
+  refs.startBackdrop.classList.add('start-hidden');
 }
 
 function onEscClose(e) {
   if (e.code !== 'Escape') {
     return;
   } else {
-    refs.startBackdrop.classList.add('is-hidden');
+    refs.startBackdrop.classList.add('start-hidden');
     document.body.classList.remove('scroll-lock');
-    // window.removeEventListener();
   }
 }
 
 export default function openStarModal() {
-  refs.startBackdrop.classList.remove('is-hidden');
-  document.body.classList.remove('scroll-lock');
+  refs.startBackdrop.classList.remove('start-hidden');
+  document.body.classList.add('scroll-lock');
 }
