@@ -21,6 +21,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    
 }
     
 .container-info-book {
@@ -40,8 +41,9 @@
     visibility: hidden;
     pointer-events: none;
     z-index: 20;
-    
+    /* transform-origin: center; */
    
+    
 }
 
 @media only screen and (min-width: 768px) {
@@ -50,6 +52,17 @@
         padding: 24px;
         
     }
+}
+.container-info-book::-webkit-scrollbar{
+    width: 0px;
+    
+
+}
+.container-info-book::-webkit-scrollbar-thumb {
+    /* background-color: #e0e0e0;
+    border-radius: 12px;
+    height: 32px; */
+    background-color: transparent;
 }
 
 .close-btn {
@@ -109,6 +122,7 @@
     display: flex;
     flex-direction: column; 
     margin: 0px 12px 0px 12px;
+    transform-origin: center;
 }
 @media only screen and (min-width: 768px) {
     .text-content {
@@ -187,21 +201,13 @@
 }
 .trading-platform:hover {
     filter: var(--popup-filter-shop-hover);
+    transform: scale(1.2);
 }
-@media (prefers-color-theme: dark) {
-    .trading-platform:not(.amazon-platform) {
-        filter: var(--popup-filter-shop);
-    }
+.amazon-platform {
+    filter: var(--popup-filter-shop-amazon);
+}
 
-    .amazon-platform {
-        filter: var(--popup-filter-shop-amazon);
-    }
-}
-@media (prefers-color-theme: dark) {
-    .trading-platform:hover {
-        filter: var(--popup-filter-shop-hover);
-    }
-}
+
 .add-btn {
     display: flex;
     width: auto;
@@ -259,11 +265,47 @@
         margin: -8px auto 16px auto;
     }
 }
+.activePopUp {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: fill;
+}
 .activeModal {
     opacity: 1;
     visibility: visible;
     pointer-events: fill;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    animation-name: openModall;
+    animation-duration: 0.5s;
+    
 } 
+
+@keyframes openModall {
+    
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+/* @keyframes closeModall {
+    from {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+} */
 /* .no-scrolling {
     overflow: hidden;
     position: fixed;
