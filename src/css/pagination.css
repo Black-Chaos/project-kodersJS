@@ -221,3 +221,7 @@
     padding: 8px 0 6px;
     vertical-align: top
 }
+
+.hide-pagination {
+    display: none;
+}
