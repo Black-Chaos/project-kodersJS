@@ -63,6 +63,7 @@ function renderCorkItem() {
               <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
             </svg>
             <p class = "cork-text">Sorry, the book will be added later...</p>
+           <p class="portfolio-cover-text">quick view</p>
             </div>
         </li>`;
 }
@@ -179,11 +180,12 @@ function renderMarkupForCategory(resp) {
 }
 
 function renderListOfCategories(book_image, title, author, _id) {
-  const bookList = `<li class = "wrapper">
-              <a href="#" class="link" id="${_id}">
-                <img class="img" src="${book_image}">
+  const bookList = `<li class = "wrapper  ">
+              <a href="#" class="link  cover-wrap " id="${_id}">
+                <img class="img " src="${book_image}">
                 <h3 class = "book-title">${title}</h3>
-                <p class = "book-author">${author}</p>
+                <p class = "book-author ">${author}</p>
+                <p class="cover-text">quick view</p>
               </a>
           </li>`;
   const link = document.querySelector('.link');
