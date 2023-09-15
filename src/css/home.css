@@ -17,6 +17,7 @@ html {
 
 .wrapper {
     margin-bottom: 40px;
+    display: flex;
 }
 
 .main-title,
@@ -103,13 +104,53 @@ html {
     padding: 14px 28px;
     float: right;
     margin-top: 8px;
+    transition: background-color 0.3s ease,box-shadow 0.3s ease;
+    
 
 }
 
+.wrapper:hover .cover-text {
+    transform: translate(0);
+}
 
-.wrapper-for-book:not(:first-child) {
+
+.cover-wrap{
+    position: relative;
+    overflow: hidden;
+        height: 100%;
+            width: 100%;
+
+}
+.cover-text {
+font-size: 22px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: 0.22px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    padding: 40px 22px;
+    width: 100%;
+    height: 30%;
+    border-radius: 6px;
+    transform: translateY(-100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.button:hover{
+    background-color: var(--brand-color);
+    box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.15);
+
+}
+
+.wrapper:not(:first-child) {
     display: none;
 }
+
 
 
 @media screen and (min-width: 375px) {
@@ -136,8 +177,10 @@ html {
     .book-author {
         max-width: 218px;
     }
-
-    .wrapper:not(:first-child) {
+.wrapper:not(:first-child) {
+    display: flex;
+}
+    .wrapper {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -166,11 +209,14 @@ html {
     .button {
         margin-top: 20px;
     }
-
+.cover-text {
+    font-size: 16px;
+    padding: 20px 16px;}
 }
 
 @media screen and (min-width: 1440px) {
-
+.cover-text {
+        font-size: 14px;}
     .category-wrapper {
         max-width: 996px;
     }
