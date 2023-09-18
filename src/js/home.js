@@ -1,7 +1,6 @@
 import { markUpBook } from './popup';
 import Book_api from './APIs/book-api';
 import iconCorkBook from '../img/icons.svg';
-// import { openModalPopUp } from './popup';
 
 const book = new Book_api();
 const categoryDivWraper = document.querySelector('.category-wrapper');
@@ -13,6 +12,7 @@ export function getAllCategoriesBookTopList() {
   showLoader();
   try {
     book.getTopBooks().then(resp => {
+      window.scrollTo(0, 0);
       categoryDivWraper.innerHTML = '';
       renderTitleForTopCategories();
       renderMarkupForTopCategories(resp);
@@ -63,7 +63,6 @@ function renderCorkItem() {
               <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
             </svg>
             <p class = "cork-text">Sorry, the book will be added later...</p>
-           <p class="portfolio-cover-text">quick view</p>
             </div>
         </li>`;
 }
@@ -76,9 +75,6 @@ function renderBlockForTopCategories(list_name, bookList) {
                         </div>`;
 
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryDiv);
-
-  const categoryList = document.querySelector('.category-list');
-  categoryList.addEventListener('click', onClickOpenPopUp);
 
   const btnSeeMore = document.querySelector('.button');
 
@@ -104,6 +100,7 @@ function onLoadMore(e) {
       for (let i = 0; i < categoryItems.length; i++) {
         if (i > 4) {
           categoryItems[i].classList = 'items-is-hidden';
+          // topToTitle(title);
           e.target.textContent = 'See More';
         }
       }
@@ -180,7 +177,7 @@ function renderMarkupForCategory(resp) {
 }
 
 function renderListOfCategories(book_image, title, author, _id) {
-  const bookList = `<li class = "wrapper  ">
+  const bookList = `<li class = "wrapper">
               <a href="#" class="link  cover-wrap " id="${_id}">
                 <img class="img " src="${book_image}">
                 <h3 class = "book-title">${title}</h3>
@@ -199,20 +196,14 @@ function renderBlockForCategories(bookList) {
   categoryDivWraper.insertAdjacentHTML('beforeend', categoryUl);
 
   hideLoader();
-
-  const categoryList = document.querySelector('.category-list');
-  categoryList.addEventListener('click', onClickOpenPopUp);
 }
 
-function onClickOpenPopUp(e) {
-  e.preventDefault();
-  if (e.target.parentNode.nodeName !== 'A') {
-    return;
+categoryDivWraper.addEventListener('click', event => {
+  if (event.target.closest('.link')) {
+    const bookId = event.target.closest('.link').getAttribute('id');
+    markUpBook(bookId);
   }
-  const id = e.target.parentNode.id;
-
-  // openModalPopUp(id);
-}
+});
 
 const btn = document.getElementById('btn-to-top');
 
@@ -223,10 +214,7 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  if (
-    document.body.scrollTop > 300 ||
-    document.documentElement.scrollTop > 300
-  ) {
+  if (window.scrollY >= 300) {
     btn.style.display = 'block';
   } else {
     btn.style.display = 'none';
@@ -235,18 +223,15 @@ function scrollFunction() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  window.scrollBy({
+  window.scrollTo({
     top: 0,
   });
 }
 
-const ulBooks = document.querySelector('.category-wrapper');
-ulBooks.addEventListener('click', event => {
-  if (event.target.closest('.link')) {
-    const bookId = event.target.closest('.link').getAttribute('id');
-    markUpBook(bookId);
-  }
-});
+// function topToTitle(title) {
+//   // title.onscroll
+//   console.log(title.addEventListener('scroll', e => title.scrollTop));
+// }
 
 function showLoader() {
   loader.classList.remove('is-hidden');
