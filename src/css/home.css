@@ -104,8 +104,8 @@ html {
     padding: 14px 28px;
     float: right;
     margin-top: 8px;
-    transition: background-color 0.3s ease,box-shadow 0.3s ease;
-    
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
 
 }
 
@@ -114,15 +114,16 @@ html {
 }
 
 
-.cover-wrap{
+.cover-wrap {
     position: relative;
     overflow: hidden;
-        height: 100%;
-            width: 100%;
+    height: 100%;
+    width: 100%;
 
 }
+
 .cover-text {
-font-size: 22px;
+    font-size: 22px;
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: 0.22px;
@@ -141,7 +142,7 @@ font-size: 22px;
     clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-.button:hover{
+.button:hover {
     background-color: var(--brand-color);
     box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.15);
 
@@ -177,9 +178,11 @@ font-size: 22px;
     .book-author {
         max-width: 218px;
     }
-.wrapper:not(:first-child) {
-    display: flex;
-}
+
+    .wrapper:not(:first-child) {
+        display: flex;
+    }
+
     .wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -209,14 +212,18 @@ font-size: 22px;
     .button {
         margin-top: 20px;
     }
-.cover-text {
-    font-size: 16px;
-    padding: 20px 16px;}
+
+    .cover-text {
+        font-size: 16px;
+        padding: 20px 16px;
+    }
 }
 
 @media screen and (min-width: 1440px) {
-.cover-text {
-        font-size: 14px;}
+    .cover-text {
+        font-size: 14px;
+    }
+
     .category-wrapper {
         max-width: 996px;
     }
@@ -334,65 +341,25 @@ font-size: 22px;
 
 
 .loader {
-    width: 150px;
-    height: 120px;
-    background: var(--brand-color);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--brand-color);
+    border-bottom-color: var(--accent-color);
+    border-radius: 50%;
+    display: inline-block;
     box-sizing: border-box;
-    position: absolute;
-    border-radius: 8px;
-    perspective: 1000px;
-    right: 40vw;
-    top: 50vh;
+    animation: rotation 1s linear infinite;
 }
 
-.loader.is-hidden {
-    display: none;
-}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
 
-.loader:before {
-    content: '';
-    position: absolute;
-    left: 5px;
-    right: 5px;
-    top: 5px;
-    bottom: 5px;
-    border-radius: 8px;
-    background: #f5f5f5 no-repeat;
-    background-size: 60px 10px;
-    background-image: linear-gradient(#ddd 100px, transparent 0),
-        linear-gradient(#ddd 100px, transparent 0),
-        linear-gradient(#ddd 100px, transparent 0),
-        linear-gradient(#ddd 100px, transparent 0),
-        linear-gradient(#ddd 100px, transparent 0),
-        linear-gradient(#ddd 100px, transparent 0);
-
-    background-position: 15px 30px, 15px 60px, 15px 90px,
-        105px 30px, 105px 60px, 105px 90px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-}
-
-.loader:after {
-    content: '';
-    position: absolute;
-    width: calc(50% - 10px);
-    right: 5px;
-    top: 5px;
-    bottom: 5px;
-    border-radius: 8px;
-    background: #fff no-repeat;
-    background-size: 60px 10px;
-    background-image: linear-gradient(#ddd 100px, transparent 0),
-        linear-gradient(#ddd 100px, transparent 0),
-        linear-gradient(#ddd 100px, transparent 0);
-    background-position: 50% 30px, 50% 60px, 50% 90px;
-    transform: rotateY(0deg);
-    transform-origin: left center;
-    animation: paging 1s linear infinite;
-}
-
-
-@keyframes paging {
-    to {
-        transform: rotateY(-180deg);
+    100% {
+        transform: rotate(360deg);
     }
 }
