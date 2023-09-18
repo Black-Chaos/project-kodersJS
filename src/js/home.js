@@ -63,7 +63,6 @@ function renderCorkItem() {
               <use class="cork-use" href="./img/icons.svg#icon-cork-book"></use>
             </svg>
             <p class = "cork-text">Sorry, the book will be added later...</p>
-           <p class="portfolio-cover-text">quick view</p>
             </div>
         </li>`;
 }
