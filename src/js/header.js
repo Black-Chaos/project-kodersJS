@@ -1,25 +1,25 @@
-import openStarModal from './start.js';
-const checkbox = document.querySelector('input[type="checkbox"]');
-// const headMobileBtn = document.querySelector('burger-menu');
-const headBtn = document.querySelector('.sign-up-button');
+// switcher dark/light themes
 
-// перевіряємо, чи була вже встановлена попередня тема
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-  document.body.classList.add(savedTheme);
-  checkbox.checked = savedTheme === 'dark'; // відмічаємо чекбокс, якщо вибрана темна тема
-}
-
-checkbox.addEventListener('change', changeTheme);
-headBtn.addEventListener('click', openStarModal);
-
-// функція змін теми
-function changeTheme() {
-  if (checkbox.checked) {
-    document.body.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    document.body.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
+(function (window, document, undefined) {
+  let darkMode = localStorage.getItem('my_darkMode');
+  if (darkMode) {
+    document.documentElement.className += ' darkmode';
   }
-}
+})(window, document);
+
+(function (window, document, undefined) {
+  let switcherMode = document.querySelector('.switch');
+  switcherMode.addEventListener(
+    'change',
+    function (event) {
+      event.preventDefault();
+      document.documentElement.classList.toggle('darkmode');
+      if (document.documentElement.classList.contains('darkmode')) {
+        localStorage.setItem('my_darkMode', true);
+        return;
+      }
+      localStorage.removeItem('my_darkMode');
+    },
+    false
+  );
+})(window, document);

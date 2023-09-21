@@ -4,6 +4,7 @@ import './js/popup';
 import './js/categories';
 import './js/funds';
 import './js/start';
+import './js/mobile_menu'
 
 // import Book_api from './js/APIs/book-api';
 
