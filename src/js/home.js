@@ -48,7 +48,7 @@ function renderListOfTopCategories(books) {
   if (books.length > 0) {
     return books
       .map(({ book_image, title, author, _id }) => {
-        return renderListOfCategories(book_image, title, author, _id);
+        return renderListOfCategoriesForTop(book_image, title, author, _id);
       })
       .join('');
   }
@@ -176,16 +176,28 @@ function renderMarkupForCategory(resp) {
   }
 }
 
-function renderListOfCategories(book_image, title, author, _id) {
-  const bookList = `<li class = "wrapper">
-              <a href="#" class="link  cover-wrap " id="${_id}">
+function renderListOfCategoriesForTop(book_image, title, author, _id) {
+  const bookList = `<li class = "wrapper-for-top">
+              <a href="#" class="link cover-wrap" id="${_id}">
                 <img class="img " src="${book_image}">
                 <h3 class = "book-title">${title}</h3>
                 <p class = "book-author ">${author}</p>
                 <p class="cover-text">quick view</p>
               </a>
           </li>`;
-  const link = document.querySelector('.link');
+
+  return bookList;
+}
+
+function renderListOfCategories(book_image, title, author, _id) {
+  const bookList = `<li class = "wrapper">
+              <a href="#" class="link cover-wrap" id="${_id}">
+                <img class="img " src="${book_image}">
+                <h3 class = "book-title">${title}</h3>
+                <p class = "book-author ">${author}</p>
+                <p class="cover-text">quick view</p>
+              </a>
+          </li>`;
 
   return bookList;
 }
