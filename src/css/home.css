@@ -15,7 +15,8 @@ html {
 
 }
 
-.wrapper {
+.wrapper,
+.wrapper-for-top {
     margin-bottom: 40px;
     display: flex;
 }
@@ -109,7 +110,8 @@ html {
 
 }
 
-.wrapper:hover .cover-text {
+.wrapper:hover .cover-text,
+.wrapper-for-top:hover .cover-text {
     transform: translate(0);
 }
 
@@ -119,7 +121,6 @@ html {
     overflow: hidden;
     height: 100%;
     width: 100%;
-
 }
 
 .cover-text {
@@ -148,7 +149,7 @@ html {
 
 }
 
-.wrapper:not(:first-child) {
+.wrapper-for-top:not(:first-child) {
     display: none;
 }
 
@@ -170,7 +171,8 @@ html {
         height: 316px;
     }
 
-    .wrapper {
+    .wrapper,
+    .wrapper-for-top {
         margin-bottom: unset;
     }
 
@@ -179,11 +181,13 @@ html {
         max-width: 218px;
     }
 
-    .wrapper:not(:first-child) {
+    .wrapper:not(:first-child),
+    .wrapper-for-top:not(:first-child) {
         display: flex;
     }
 
-    .wrapper {
+    .wrapper,
+    .wrapper-for-top {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
